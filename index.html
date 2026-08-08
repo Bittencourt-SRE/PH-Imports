@@ -10,16 +10,16 @@
     
     #particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:radial-gradient(circle at 50% 50%, #05051a 0%, #000 100%);}
     
-    /* HEADER COM LOGO GRANDE */
-    header{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;}
-    .logo{display:flex;align-items:center;justify-content:center;width:100%;}
-    .logo img{height:70px;filter:drop-shadow(0 0 15px #FFD700);} /* Logo maior */
-    .cart-btn{background:#FFD700;color:#000;padding:12px 20px;border-radius:25px;border:none;cursor:pointer;font-weight:bold;font-size:14px;position:relative;z-index:101;}
+    /* HEADER COM LOGO GRANDE EM TUDO */
+    header{display:flex;justify-content:center;align-items:center;padding:0;background:rgba(0,0,0,0.9);backdrop-filter:blur(10px);position:relative;top:0;z-index:100;border-bottom:2px solid #FFD700;}
+    .logo{width:100%;text-align:center;}
+    .logo img{width:100%;height:120px;object-fit:contain;padding:10px 0;filter:drop-shadow(0 0 15px #FFD700);}
+    .cart-btn{position:absolute;right:5%;background:#FFD700;color:#000;padding:10px 20px;border-radius:25px;border:none;cursor:pointer;font-weight:bold;font-size:14px;display:flex;gap:8px;align-items:center;}
     
     .banner{text-align:center;padding:60px 5% 40px 5%;}
-    .banner h1{font-size:32px;margin-bottom:15px;text-shadow:0 0 15px rgba(255,215,0,0.5);line-height:1.2;}
-    .banner p{font-size:14px;margin-bottom:30px;color:#ccc;line-height:1.5;}
-    .pilares{display:flex;flex-direction:column;gap:15px;margin-top:30px;max-width:400px;margin-left:auto;margin-right:auto;}
+    .banner h1{display:none;} /* REMOVIDO */
+    .banner p{display:none;} /* REMOVIDO */
+    .pilares{display:flex;flex-direction:column;gap:15px;margin-top:10px;max-width:400px;margin-left:auto;margin-right:auto;}
     .pilar{background:rgba(20,20,20,0.6);border:1px solid #FFD700;padding:18px 20px;border-radius:15px;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;gap:10px;backdrop-filter:blur(5px);}
     
     .tabs{display:flex;justify-content:center;gap:15px;margin:30px 5%;flex-wrap:wrap;}
@@ -33,13 +33,19 @@
     .card h3{color:#FFD700;margin-bottom:5px;font-size:20px;}
     .card p{color:#aaa;font-size:14px;margin-bottom:10px;}
     .preco{font-size:24px;font-weight:bold;margin:10px 0;color:#fff;}
-    .btn-comprar{width:100%;padding:14px;background:#FFD700;color:#000;border:none;border-radius:10px;cursor:pointer;font-weight:bold;font-size:16px;transition:0.2s;}
+    .btns-card{display:flex;gap:10px;}
+    .btn-comprar, .btn-add{flex:1;padding:12px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;font-size:14px;transition:0.2s;}
+    .btn-comprar{background:#FFD700;color:#000;}
     .btn-comprar:hover{background:#FFC400;}
+    .btn-add{background:transparent;color:#FFD700;border:2px solid #FFD700;}
+    .btn-add:hover{background:#FFD700;color:#000;}
     
-    /* MODAL CARRINHO */
-    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:200;overflow-y:auto;}
-    .modal-content{background:#111;margin:5% auto;padding:30px;border-radius:20px;max-width:500px;border:2px solid #FFD700;}
-    .modal-content h2{color:#FFD700;margin-bottom:20px;text-align:center;}
+    /* MODAL CARRINHO MEIA TELA */
+    .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:200;}
+    .modal-content{background:#111;margin:0 auto;padding:20px;border-radius:20px 20px 0 0;border:2px solid #FFD700;border-bottom:none;position:absolute;bottom:0;width:100%;max-height:50vh;overflow-y:auto;} /* 50% da tela */
+    .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+    .modal-header h2{color:#FFD700;}
+    .btn-x{background:none;border:none;color:#FFD700;font-size:28px;cursor:pointer;line-height:1;}
     .item-carrinho{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;padding:10px;background:rgba(255,255,255,0.05);border-radius:10px;}
     .item-info{flex:1;}
     .item-info h4{color:#FFD700;font-size:14px;}
@@ -47,18 +53,20 @@
     .qtd{display:flex;gap:8px;align-items:center;}
     .qtd button{background:#FFD700;color:#000;border:none;width:25px;height:25px;border-radius:50%;cursor:pointer;font-weight:bold;}
     .total{font-size:22px;font-weight:bold;color:#FFD700;text-align:right;margin:20px 0;border-top:1px solid #FFD700;padding-top:15px;}
-    .btn-fechar, .btn-finalizar, .btn-continuar{width:100%;padding:15px;border:none;border-radius:10px;font-weight:bold;font-size:16px;margin-top:10px;cursor:pointer;}
+    .btn-fechar, .btn-finalizar, .btn-continuar, .btn-esvaziar{width:100%;padding:15px;border:none;border-radius:10px;font-weight:bold;font-size:16px;margin-top:10px;cursor:pointer;}
     .btn-finalizar{background:#FFD700;color:#000;}
     .btn-continuar{background:transparent;color:#FFD700;border:2px solid #FFD700;}
-    .btn-fechar{background:#333;color:#fff;}
+    .btn-esvaziar{background:#800;color:#fff;}
     
     /* FORM CHECKOUT */
+    .modal-checkout .modal-content{max-height:90vh;}
     .form-group{margin-bottom:15px;}
     .form-group label{display:block;margin-bottom:5px;color:#FFD700;font-size:14px;}
     .form-group input, .form-group select{width:100%;padding:12px;border-radius:8px;border:1px solid #FFD700;background:#222;color:#fff;}
     .pagamento-opcoes{display:flex;flex-direction:column;gap:10px;margin:20px 0;}
     .pagamento-opcoes label{background:rgba(255,255,255,0.05);padding:12px;border-radius:10px;cursor:pointer;display:flex;gap:10px;align-items:center;}
-    .qr-code{width:200px;height:200px;background:#fff;margin:20px auto;display:none;border-radius:10px;}
+    .qr-code{width:200px;height:200px;background:#fff;margin:10px auto;display:none;border-radius:10px;}
+    .copiar-pix{background:#222;border:1px solid #FFD700;color:#FFD700;padding:10px;border-radius:8px;width:100%;margin-top:10px;cursor:pointer;}
     
     .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
 </style>
@@ -68,14 +76,12 @@
 
 <header>
     <div class="logo">
-        <img src="LOGO_PH.png" alt="PH Imports"> <!-- Só logo, sem texto -->
+        <img src="LOGO_PH.png" alt="PH Imports"> <!-- Logo ocupando tudo -->
     </div>
     <button class="cart-btn" onclick="abrirCarrinho()">🛒 Carrinho (<span id="qtd-carrinho">0</span>)</button>
 </header>
 
 <section class="banner">
-    <h1>iPhones<br>Originais com<br>Garantia</h1>
-    <p>100% Lacrado | Pague na Entrega | 90<br>Dias de Garantia</p>
     <div class="pilares">
         <div class="pilar">📦 Produtos de procedência</div>
         <div class="pilar">💳 Pix, boleto e cartão</div>
@@ -90,24 +96,30 @@
 
 <section class="produtos" id="produtos"></section>
 
-<a href="https://wa.me/5551984254783" class="whats" target="_blank">💬</a>
+<a href="https://wa.me/5551995702188" class="whats" target="_blank">💬</a>
 
 <!-- MODAL CARRINHO -->
 <div id="modal-carrinho" class="modal">
     <div class="modal-content">
-        <h2>🛒 Seu Carrinho</h2>
+        <div class="modal-header">
+            <h2>🛒 Seu Carrinho</h2>
+            <button class="btn-x" onclick="fecharCarrinho()">×</button>
+        </div>
         <div id="lista-carrinho"></div>
         <div class="total">Total: R$ <span id="total-carrinho">0,00</span></div>
         <button class="btn-finalizar" onclick="abrirCheckout()">🛒 Finalizar Compra 🛒</button>
         <button class="btn-continuar" onclick="fecharCarrinho()">Continuar Comprando</button>
-        <button class="btn-fechar" onclick="fecharCarrinho()">Fechar</button>
+        <button class="btn-esvaziar" onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
     </div>
 </div>
 
 <!-- MODAL CHECKOUT -->
-<div id="modal-checkout" class="modal">
+<div id="modal-checkout" class="modal modal-checkout">
     <div class="modal-content">
-        <h2>Finalizar Pedido</h2>
+        <div class="modal-header">
+            <h2>Finalizar Pedido</h2>
+            <button class="btn-x" onclick="fecharCheckout()">×</button>
+        </div>
         <div class="form-group"><label>Nome Completo</label><input type="text" id="nome"></div>
         <div class="form-group"><label>WhatsApp</label><input type="text" id="whats"></div>
         <div class="form-group"><label>Endereço Completo</label><input type="text" id="endereco"></div>
@@ -121,23 +133,31 @@
         <div id="area-pix">
             <p style="text-align:center;color:#FFD700;">Sinal de 30%: R$ <span id="valor-sinal">0,00</span></p>
             <img id="qr-code" class="qr-code" src="" alt="QR Code PIX">
-            <p style="font-size:12px;text-align:center;">Pague o QR Code acima para confirmar o pedido</p>
+            <input type="text" id="pix-copia-cola" readonly style="display:none;width:100%;padding:10px;background:#222;border:1px solid #FFD700;color:#fff;border-radius:8px;margin-top:10px;">
+            <button class="copiar-pix" onclick="copiarPix()">Copiar Código PIX</button>
         </div>
         <button class="btn-finalizar" onclick="finalizarPedido()">🛒 Confirmar Pedido 🛒</button>
-        <button class="btn-fechar" onclick="fecharCheckout()">Voltar</button>
     </div>
 </div>
 
 <script>
 let carrinho = [];
 let numeroPedido = parseInt(localStorage.getItem('numeroPedido') || '1');
-const NUMERO_PH = "5551984254783";
-const CHAVE_PIX = "sua-chave-pix-aqui"; // COLOCA TUA CHAVE PIX AQUI
+const NUMERO_PH = "5551995702188"; // NOVO NUMERO
+const NOME_PIX = "Edmilson Ricardo de Mello Bittencourt Junior";
+const CHAVE_PIX = "60055624014"; // CPF NUBANK
 
 const produtos = [
+    // PRODUTO TESTE
+    {nome:'iPhone TESTE', desc:'R$ 0,10 - Para teste de pagamento', preco:0.10, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-naturaltitanium?wid=5120&fmt=pjpg', tipo:'pronta'},
+    {nome:'iPhone TESTE ENCOMENDA', desc:'R$ 0,10 - Para teste 30%', preco:0.10, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-1inch-deserttitanium?wid=5120&fmt=pjpg', tipo:'encomenda'},
+    
+    // PRONTA ENTREGA
     {nome:'iPhone 15 Pro Max', desc:'512GB - Titânio Natural', preco:7200, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-naturaltitanium?wid=5120&fmt=pjpg', tipo:'pronta'},
     {nome:'iPhone 15 Pro', desc:'256GB - Titânio Azul', preco:5400, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-bluetitanium?wid=5120&fmt=pjpg', tipo:'pronta'},
     {nome:'iPhone 14', desc:'128GB - Roxo', preco:3800, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch-purple?wid=5120&fmt=pjpg', tipo:'pronta'},
+
+    // ENCOMENDA 30%
     {nome:'iPhone 16 Pro Max', desc:'1TB - Titânio Deserto', preco:8500, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-1inch-deserttitanium?wid=5120&fmt=pjpg', tipo:'encomenda'},
 ];
 
@@ -147,17 +167,25 @@ function renderizarProdutos(tipo){
     const container = document.getElementById('produtos');
     container.innerHTML = '';
     produtos.filter(p => p.tipo == tipo).forEach(p=>{
+        const btnComprar = tipo=='encomenda' ? 'Encomendar 30%' : 'Comprar Agora';
         container.innerHTML += `
         <div class="card">
             <img src="${p.img}" alt="${p.nome}">
             <h3>${p.nome}</h3>
             <p>${p.desc}</p>
             <div class="preco">R$ ${formatarPreco(p.preco)}</div>
-            <button class="btn-comprar" onclick="adicionarCarrinho('${p.nome}', '${p.desc}', ${p.preco})">
-                ${tipo=='encomenda'?'Encomendar com 30%':'Comprar Agora'}
-            </button>
+            <div class="btns-card">
+                <button class="btn-comprar" onclick="comprarDireto('${p.nome}', '${p.desc}', ${p.preco})">${btnComprar}</button>
+                <button class="btn-add" onclick="adicionarCarrinho('${p.nome}', '${p.desc}', ${p.preco})">Add</button>
+            </div>
         </div>`;
     });
+}
+
+function comprarDireto(nome, desc, preco){
+    carrinho = [{nome, desc, preco, qtd:1}]; // Limpa e adiciona só 1
+    atualizarCarrinho();
+    abrirCheckout();
 }
 
 function adicionarCarrinho(nome, desc, preco){
@@ -165,12 +193,18 @@ function adicionarCarrinho(nome, desc, preco){
     if(item){ item.qtd++; } 
     else { carrinho.push({nome, desc, preco, qtd:1}); }
     atualizarCarrinho();
+    abrirCarrinho();
 }
 
 function removerCarrinho(nome){
     const item = carrinho.find(i => i.nome == nome);
     if(item.qtd > 1){ item.qtd--; } 
     else { carrinho = carrinho.filter(i => i.nome != nome); }
+    atualizarCarrinho();
+}
+
+function esvaziarCarrinho(){
+    carrinho = [];
     atualizarCarrinho();
 }
 
@@ -208,15 +242,31 @@ function abrirCheckout(){
 }
 function fecharCheckout(){ document.getElementById('modal-checkout').style.display='none'; }
 
+function gerarPayloadPix(valor){
+    // Payload PIX simplificado para QR Code
+    return `00020126580014br.gov.bcb.pix0136${CHAVE_PIX}5204000053039865802BR5925${NOME_PIX}6009SAO PAULO62070503***6304`;
+}
+
 function mostrarPix(){
     document.getElementById('area-pix').style.display='block';
-    const sinal = carrinho.reduce((t,i)=>t+i.preco*i.qtd,0) * 0.3;
-    // Gera QR Code PIX - usando API pública
+    const total = carrinho.reduce((t,i)=>t+i.preco*i.qtd,0);
+    const sinal = total * 0.3;
     const valor = sinal.toFixed(2);
-    document.getElementById('qr-code').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PIX:${CHAVE_PIX}:${valor}`;
+    
+    const payload = `PIX:${CHAVE_PIX}:${valor}:${NOME_PIX}`;
+    document.getElementById('qr-code').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(payload)}`;
     document.getElementById('qr-code').style.display='block';
+    document.getElementById('pix-copia-cola').value = payload;
+    document.getElementById('pix-copia-cola').style.display='block';
 }
 function esconderPix(){ document.getElementById('area-pix').style.display='none'; }
+
+function copiarPix(){
+    const input = document.getElementById('pix-copia-cola');
+    input.select();
+    document.execCommand('copy');
+    alert('Código PIX copiado!');
+}
 
 function finalizarPedido(){
     const nome = document.getElementById('nome').value;
