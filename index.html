@@ -10,11 +10,11 @@
     
     #particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:radial-gradient(circle at 50% 50%, #05051a 0%, #000 100%);}
     
-    /* HEADER LOGO GRANDE */
-    header{display:flex;justify-content:center;align-items:center;padding:0;background:rgba(0,0,0,0.9);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;border-bottom:2px solid #FFD700;}
+    /* HEADER TODO BRANCO COM LOGO MAIOR */
+    header{display:flex;justify-content:center;align-items:center;padding:0;background:#fff;position:sticky;top:0;z-index:100;border-bottom:3px solid #FFD700;min-height:150px;} /* altura maior */
     .logo{width:100%;text-align:center;}
-    .logo img{width:100%;height:130px;object-fit:contain;padding:15px 0;filter:drop-shadow(0 0 15px #FFD700);}
-    .cart-btn{position:absolute;right:5%;top:50%;transform:translateY(-50%);background:#FFD700;color:#000;padding:10px 20px;border-radius:25px;border:none;cursor:pointer;font-weight:bold;font-size:14px;display:flex;gap:8px;align-items:center;}
+    .logo img{width:90%;max-width:400px;height:auto;object-fit:contain;padding:20px 0;} /* expandiu mais */
+    .cart-btn{position:absolute;right:5%;top:50%;transform:translateY(-50%);background:#FFD700;color:#000;padding:8.5px 17px; /* -15% */ border-radius:25px;border:none;cursor:pointer;font-weight:bold;font-size:12px; /* -15% */ display:flex;gap:6px;align-items:center;}
     
     .banner{text-align:center;padding:40px 5% 30px 5%;}
     .pilares{display:flex;flex-direction:column;gap:15px;max-width:400px;margin:0 auto;}
@@ -36,12 +36,12 @@
     .btn-comprar{background:#FFD700;color:#000;}
     .btn-add{background:transparent;color:#FFD700;border:2px solid #FFD700;}
     
-    /* MODAL CARRINHO MEIA TELA */
+    /* MODAL CARRINHO - MENOS DE MEIA TELA + X ESQUERDA */
     .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:200;}
-    .modal-content{background:#111;margin:0 auto;padding:20px;border-radius:20px 20px 0 0;border:2px solid #FFD700;border-bottom:none;position:absolute;bottom:0;width:100%;max-height:50vh;overflow-y:auto;}
-    .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-    .modal-header h2{color:#FFD700;font-size:20px;}
-    .btn-x{background:none;border:none;color:#FFD700;font-size:32px;cursor:pointer;line-height:1;padding:0 10px;}
+    .modal-content{background:#111;margin:0 auto;padding:20px;border-radius:20px 20px 0 0;border:2px solid #FFD700;border-bottom:none;position:absolute;bottom:0;width:100%;max-height:40vh;overflow-y:auto;} /* 40% da tela */
+    .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;position:relative;}
+    .modal-header h2{color:#FFD700;font-size:20px;margin:0 auto;}
+    .btn-x{position:absolute;left:0;top:0;background:none;border:none;color:#FFD700;font-size:32px;cursor:pointer;line-height:1;padding:0;}
     .item-carrinho{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;padding:12px;background:rgba(255,255,255,0.05);border-radius:10px;}
     .item-info{flex:1;}
     .item-info h4{color:#FFD700;font-size:14px;}
@@ -62,7 +62,7 @@
 
 <header>
     <div class="logo">
-        <img src="LOGO_PH.png" alt="PH Imports">
+        <img src="/mnt/data/wa_image_5780872385356168928" alt="PH Imports"> <!-- Logo que tu mandou -->
     </div>
     <button class="cart-btn" onclick="abrirCarrinho()">🛒 Carrinho (<span id="qtd-carrinho">0</span>)</button>
 </header>
@@ -88,8 +88,8 @@
 <div id="modal-carrinho" class="modal">
     <div class="modal-content">
         <div class="modal-header">
+            <button class="btn-x" onclick="fecharCarrinho()">×</button> <!-- X na esquerda -->
             <h2>🛒 Seu Carrinho</h2>
-            <button class="btn-x" onclick="fecharCarrinho()">×</button>
         </div>
         <div id="lista-carrinho"></div>
         <div class="total">Total: R$ <span id="total-carrinho">0,00</span></div>
@@ -105,15 +105,9 @@ let numeroPedido = parseInt(localStorage.getItem('numeroPedido') || '1');
 const NUMERO_PH = "5551995702188";
 
 const produtos = [
-    // PRODUTO TESTE
     {nome:'iPhone TESTE', desc:'R$ 0,10 - Para teste', preco:0.10, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-naturaltitanium?wid=5120&fmt=pjpg', tipo:'pronta'},
     {nome:'iPhone TESTE ENCOMENDA', desc:'R$ 0,10 - Para teste 30%', preco:0.10, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-1inch-deserttitanium?wid=5120&fmt=pjpg', tipo:'encomenda'},
-    
-    // PRONTA ENTREGA
     {nome:'iPhone 15 Pro Max', desc:'512GB - Titânio Natural', preco:7200, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-naturaltitanium?wid=5120&fmt=pjpg', tipo:'pronta'},
-    {nome:'iPhone 15 Pro', desc:'256GB - Titânio Azul', preco:5400, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-bluetitanium?wid=5120&fmt=pjpg', tipo:'pronta'},
-
-    // ENCOMENDA 30%
     {nome:'iPhone 16 Pro Max', desc:'1TB - Titânio Deserto', preco:8500, img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-1inch-deserttitanium?wid=5120&fmt=pjpg', tipo:'encomenda'},
 ];
 
@@ -192,18 +186,13 @@ function fecharCarrinho(){ document.getElementById('modal-carrinho').style.displ
 
 function finalizarWhatsApp(){
     if(carrinho.length==0){ alert('Carrinho vazio'); return; }
-    
     const total = carrinho.reduce((t,i)=>t+i.preco*i.qtd,0);
     const itens = carrinho.map(i=>`${i.nome} - ${i.qtd}x R$${formatarPreco(i.preco)}`).join('\n');
     const pedidoNum = numeroPedido;
     numeroPedido++;
     localStorage.setItem('numeroPedido', numeroPedido);
     
-    let msg = `🛒 PEDIDO Nº ${pedidoNum} 🛒\n\n`;
-    msg += `ITENS:\n${itens}\n\n`;
-    msg += `TOTAL: R$ ${formatarPreco(total)}\n\n`;
-    msg += `Aguardando dados para finalizar.`;
-    
+    let msg = `🛒 PEDIDO Nº ${pedidoNum} 🛒\n\nITENS:\n${itens}\n\nTOTAL: R$ ${formatarPreco(total)}`;
     window.open(`https://wa.me/${NUMERO_PH}?text=${encodeURIComponent(msg)}`);
     carrinho = [];
     atualizarCarrinho();
