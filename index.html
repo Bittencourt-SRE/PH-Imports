@@ -11,12 +11,12 @@
     /* FUNDO GALAXIA */
     #particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:radial-gradient(circle at 50% 50%, #05051a 0%, #000 100%);}
     
-    /* HEADER FIXO NO TOPO, SEM FUNDO */
+    /* HEADER FIXO NO TOPO, SEM FUNDO - LOGO CENTRALIZADA */
     header{
         display:flex;
         justify-content:space-between;
         align-items:center;
-        padding:15px 5%;
+        padding:20px 5% 10px 5%; /* 20px em cima pra não grudar */
         background:transparent;
         position:fixed;
         top:0;
@@ -25,11 +25,14 @@
         z-index:100;
     }
 
-    /* LOGO VIA SVG COM ANIMAÇÃO */
+    /* LOGO CENTRALIZADA E MENOR */
     .logo-svg {
-        width: 200px;
+        width: 160px; /* diminui um pouco */
         height: auto;
         animation: glowPulse 2s ease-in-out infinite;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%); /* trava no centro exato */
     }
     .logo-svg svg {
         width: 100%;
@@ -51,10 +54,13 @@
         font-size:14px;
         box-shadow:0 0 15px rgba(255,215,0,0.4);
         transition:0.3s;
+        margin-left: auto; /* joga pra direita */
+        position: relative;
+        z-index: 101;
     }
     .cart-btn:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(255,215,0,0.7);}
     
-    /* BANNER COM IMAGEM */
+    /* BANNER COM IMAGEM - DESCEU PRA NÃO FICAR ATRÁS DA LOGO */
     .banner-hero {
         width: 100%;
         height: 45vh;
@@ -65,7 +71,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 70px;
+        margin-top: 110px; /* era 70px, aumentei */
     }
     .banner-hero::after {
         content: '';
@@ -111,10 +117,10 @@
     .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
 
     @media(max-width: 768px){
-        .logo-svg{width:150px;}
-        .banner-hero{height: 35vh;}
+        .logo-svg{width:130px;} /* menor no mobile */
+        .banner-hero{height: 35vh; margin-top: 100px;}
         .pilar{font-size:14px;}
-        header{padding:12px 5%;}
+        header{padding:15px 5%;}
     }
 </style>
 </head>
@@ -122,7 +128,7 @@
 <canvas id="particles"></canvas>
 
 <header>
-    <!-- LOGO VIA CÓDIGO -->
+    <!-- LOGO VIA CÓDIGO - CENTRALIZADA -->
     <div class="logo-svg">
         <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
