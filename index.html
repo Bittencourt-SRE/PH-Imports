@@ -9,29 +9,81 @@
     body{background:#000;color:#fff;overflow-x:hidden;}
     
     /* FUNDO GALAXIA */
-    #particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:radial-gradient(circle at 50% 50%, #0a0a2a 0%, #000 100%);}
+    #particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:radial-gradient(circle at 50% 50%, #05051a 0%, #000 100%);}
     
-    /* HEADER */
-    header{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;}
-    .logo{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:bold;color:#FFD700;}
-    .logo img{height:45px;filter:drop-shadow(0 0 8px #FFD700);}
-    .cart-btn{background:#FFD700;color:#000;padding:10px 20px;border-radius:25px;border:none;cursor:pointer;font-weight:bold;}
+    /* HEADER BRANCO COM LOGO 100% */
+    header{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:0;
+        background:#fff; /* fundo branco */
+        position:sticky;
+        top:0;
+        z-index:100;
+        border-bottom:3px solid #FFD700;
+    }
+    .logo{
+        width:100%;
+        text-align:center;
+    }
+    .logo img{
+        width:100%; /* 100% pros lados */
+        height:auto;
+        padding:15px 0 17px 0; /* +15% pra baixo. era 15px, agora 17px */
+        object-fit:contain;
+        filter: drop-shadow(0 0 0 #FFD700); /* tira brilho pra ficar dourado limpo */
+    }
+    .cart-btn{
+        position:absolute;
+        right:5%;
+        top:50%;
+        transform:translateY(-50%);
+        background:#FFD700;
+        color:#000;
+        padding:10px 18px;
+        border-radius:25px;
+        border:none;
+        cursor:pointer;
+        font-weight:bold;
+        font-size:14px;
+    }
     
     /* BANNER */
-    .banner{text-align:center;padding:80px 5%;}
-    .banner h1{font-size:42px;margin-bottom:20px;text-shadow:0 0 20px #FFD700;}
-    .banner p{font-size:18px;margin-bottom:30px;color:#ccc;}
-    .pilares{display:flex;justify-content:center;gap:30px;margin-top:40px;flex-wrap:wrap;}
-    .pilar{background:rgba(255,215,0,0.1);border:1px solid #FFD700;padding:20px;border-radius:15px;width:250px;font-weight:600;}
+    .banner{text-align:center;padding:60px 5% 40px 5%;}
+    .banner h1{
+        font-size:32px;
+        margin-bottom:15px;
+        text-shadow:0 0 15px rgba(255,215,0,0.5);
+        line-height:1.2;
+    }
+    .banner p{font-size:14px;margin-bottom:30px;color:#ccc;line-height:1.5;}
+    
+    /* PILARES */
+    .pilares{display:flex;flex-direction:column;gap:15px;margin-top:30px;max-width:400px;margin-left:auto;margin-right:auto;}
+    .pilar{
+        background:rgba(20,20,20,0.6);
+        border:1px solid #FFD700;
+        padding:18px 20px;
+        border-radius:15px;
+        font-weight:600;
+        font-size:15px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        backdrop-filter:blur(5px);
+        box-shadow:0 0 15px rgba(255,215,0,0.1);
+    }
     
     /* ABAS */
-    .tabs{display:flex;justify-content:center;gap:20px;margin:40px 0;}
-    .tab-btn{padding:15px 40px;background:transparent;border:2px solid #FFD700;color:#FFD700;border-radius:30px;cursor:pointer;font-weight:bold;transition:0.3s;font-size:16px;}
+    .tabs{display:flex;justify-content:center;gap:15px;margin:30px 5%;flex-wrap:wrap;}
+    .tab-btn{padding:12px 25px;background:transparent;border:2px solid #FFD700;color:#FFD700;border-radius:30px;cursor:pointer;font-weight:bold;transition:0.3s;font-size:14px;}
     .tab-btn.active{background:#FFD700;color:#000;}
     
     /* PRODUTOS */
-    .produtos{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px;padding:0 5% 80px 5%;}
-    .card{background:rgba(255,255,255,0.05);border-radius:20px;padding:20px;transition:0.3s;border:1px solid rgba(255,215,0,0.2);}
+    .produtos{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding:0 5% 80px 5%;}
+    .card{background:rgba(255,255,255,0.05);border-radius:20px;padding:20px;transition:0.3s;border:1px solid rgba(255,215,0,0.2);position:relative;}
     .card:hover{transform:translateY(-8px);border-color:#FFD700;box-shadow:0 0 25px rgba(255,215,0,0.3);}
     .card img{width:100%;height:220px;object-fit:contain;background:rgba(0,0,0,0.3);border-radius:15px;margin-bottom:15px;padding:10px;}
     .card h3{color:#FFD700;margin-bottom:5px;font-size:20px;}
@@ -39,10 +91,14 @@
     .preco{font-size:24px;font-weight:bold;margin:10px 0;color:#fff;}
     .btn-comprar{width:100%;padding:14px;background:#FFD700;color:#000;border:none;border-radius:10px;cursor:pointer;font-weight:bold;font-size:16px;transition:0.2s;}
     .btn-comprar:hover{background:#FFC400;}
-    .tag{position:absolute;background:#FFD700;color:#000;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:bold;}
     
     /* WHATS FLUTUANTE */
-    .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;color:#fff;box-shadow:0 0 20px #25D366;z-index:99;}
+    .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
+
+    @media(max-width: 768px){
+        .banner h1{font-size:28px;}
+        .pilar{font-size:14px;}
+    }
 </style>
 </head>
 <body>
@@ -50,15 +106,14 @@
 
 <header>
     <div class="logo">
-        <img src="LOGO_PH.png" alt="PH Imports">
-        PH IMPORTS
+        <img src="LOGO_PH.png" alt="PH Imports"> <!-- Só a logo, sem texto -->
     </div>
     <button class="cart-btn">Carrinho (0)</button>
 </header>
 
 <section class="banner">
-    <h1>iPhones Originais com Garantia</h1>
-    <p>100% Lacrado | Pague na Entrega | 90 Dias de Garantia</p>
+    <h1>iPhones<br>Originais com<br>Garantia</h1>
+    <p>100% Lacrado | Pague na Entrega | 90<br>Dias de Garantia</p>
     <div class="pilares">
         <div class="pilar">🛡️ Garantia de 90 dias</div>
         <div class="pilar">✅ 100% Original Lacrado</div>
@@ -67,8 +122,8 @@
 </section>
 
 <div class="tabs">
-    <button class="tab-btn active" onclick="trocarAba('pronta')">Pronta Entrega</button>
-    <button class="tab-btn" onclick="trocarAba('encomenda')">Encomenda 30%</button>
+    <button class="tab-btn active">Pronta Entrega</button>
+    <button class="tab-btn">Encomenda 30%</button>
 </div>
 
 <section class="produtos" id="produtos"></section>
@@ -76,86 +131,14 @@
 <a href="https://wa.me/5551984254783" class="whats" target="_blank">💬</a>
 
 <script>
-// BANCO DE PRODUTOS - SÓ ADICIONAR AQUI
-const produtos = [
-    // PRONTA ENTREGA
-    {nome:'iPhone 15 Pro Max', desc:'512GB - Titânio Natural', preco:'R$ 7.200', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-naturaltitanium?wid=5120&fmt=pjpg', tipo:'pronta'},
-    {nome:'iPhone 15 Pro', desc:'256GB - Titânio Azul', preco:'R$ 5.400', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-bluetitanium?wid=5120&fmt=pjpg', tipo:'pronta'},
-    {nome:'iPhone 14', desc:'128GB - Roxo', preco:'R$ 3.800', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch-purple?wid=5120&fmt=pjpg', tipo:'pronta'},
-    {nome:'iPhone 13', desc:'128GB - Meia-Noite', preco:'R$ 3.200', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-select-202207-6-1inch-midnight?wid=5120&fmt=pjpg', tipo:'pronta'},
-    {nome:'iPhone 12', desc:'64GB - Branco', preco:'R$ 2.600', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-finish-select-202207-6-1inch-white?wid=5120&fmt=pjpg', tipo:'pronta'},
-    {nome:'iPhone 11', desc:'64GB - Preto', preco:'R$ 2.100', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-black-select-2019?wid=5120&fmt=pjpg', tipo:'pronta'},
-    {nome:'iPhone XS', desc:'256GB - Dourado', preco:'R$ 1.800', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-xs-gold-select-2018?wid=5120&fmt=pjpg', tipo:'pronta'},
-    {nome:'iPhone X', desc:'64GB - Cinza Espacial', preco:'R$ 1.500', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-x-spacegray-select-2017?wid=5120&fmt=pjpg', tipo:'pronta'},
-    {nome:'AirPods Pro 2', desc:'Com MagSafe e USB-C', preco:'R$ 1.400', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MTJV3?wid=1144&fmt=jpeg', tipo:'pronta'},
-    {nome:'AirPods 3', desc:'Com Estojo Lightning', preco:'R$ 980', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MME73?wid=1144&fmt=jpeg', tipo:'pronta'},
-    {nome:'Carregador 20W', desc:'Original Apple USB-C', preco:'R$ 180', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MHJ83?wid=1144&fmt=jpeg', tipo:'pronta'},
-    {nome:'Cabo USB-C Lightning', desc:'1 Metro Original', preco:'R$ 120', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQKU3?wid=1144&fmt=jpeg', tipo:'pronta'},
-
-    // ENCOMENDA 30%
-    {nome:'iPhone 16 Pro Max', desc:'1TB - Titânio Deserto', preco:'R$ 8.500', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-1inch-deserttitanium?wid=5120&fmt=pjpg', tipo:'encomenda'},
-    {nome:'iPhone 16 Pro', desc:'512GB - Titânio Natural', preco:'R$ 7.000', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-1inch-naturaltitanium?wid=5120&fmt=pjpg', tipo:'encomenda'},
-    {nome:'MacBook Air M2', desc:'256GB - Meia-Noite', preco:'R$ 6.800', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mba13-midnight-select-202206?wid=904&fmt=jpeg', tipo:'encomenda'},
-    {nome:'MacBook Pro M3', desc:'512GB - Cinza Espacial', preco:'R$ 9.200', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202310?wid=904&fmt=jpeg', tipo:'encomenda'},
-    {nome:'AirPods Max', desc:'Verde - USB-C', preco:'R$ 3.900', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-max-select-green-202011?wid=1144&fmt=jpeg', tipo:'encomenda'},
-    {nome:'PowerBank MagSafe', desc:'5000mAh Original', preco:'R$ 650', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MJWY3?wid=1144&fmt=jpeg', tipo:'encomenda'},
-    {nome:'Carregador 30W', desc:'USB-C Rápido', preco:'R$ 250', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MZJ73?wid=1144&fmt=jpeg', tipo:'encomenda'},
-    {nome:'Película Vidro 3D', desc:'iPhone 15 Pro Max', preco:'R$ 90', img:'https://cdn.shopify.com/s/files/1/0525/2749/products/1_9b0e1b1a-8b0a-4b1a-8b0a-4b1a8b0a4b1a.jpg', tipo:'encomenda'},
-];
-
-function renderizarProdutos(tipo){
-    const container = document.getElementById('produtos');
-    container.innerHTML = '';
-    produtos.filter(p => p.tipo == tipo).forEach(p=>{
-        container.innerHTML += `
-        <div class="card">
-            <img src="${p.img}" alt="${p.nome}">
-            <h3>${p.nome}</h3>
-            <p>${p.desc}</p>
-            <div class="preco">${p.preco}</div>
-            <button class="btn-comprar" onclick="${tipo=='encomenda'?'encomendar':'comprar'}('${p.nome} - ${p.desc}')">
-                ${tipo=='encomenda'?'Encomendar com 30%':'Comprar Agora'}
-            </button>
-        </div>`;
-    });
-}
-
-function encomendar(produto){
-    let msg = `Olá PH! Quero ENCOMENDAR: ${produto}%0AQuero pagar 30% de sinal. Me passa os dados?`;
-    window.open(`https://wa.me/5551984254783?text=${encodeURIComponent(msg)}`);
-}
-function comprar(produto){
-    let msg = `Olá PH! Quero COMPRAR: ${produto}%0AForma de pagamento: Pix ou na Entrega`;
-    window.open(`https://wa.me/5551984254783?text=${encodeURIComponent(msg)}`);
-}
-function trocarAba(aba){
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    event.target.classList.add('active');
-    renderizarProdutos(aba);
-}
-
-// EFEITO PARTICULAS GALAXIA
+// EFEITO PARTICULAS
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
 let particles = [];
-for(let i=0; i<120; i++){
-    particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2,dx:(Math.random()-0.5)*0.3,dy:(Math.random()-0.5)*0.3});
-}
-function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particles.forEach(p=>{
-        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='#FFD700';ctx.fill();
-        p.x+=p.dx;p.y+=p.dy;
-        if(p.x<0||p.x>canvas.width)p.dx*=-1;
-        if(p.y<0||p.y>canvas.height)p.dy*=-1;
-    });
-    requestAnimationFrame(animate);
-}
+for(let i=0; i<120; i++){ particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2,dx:(Math.random()-0.5)*0.3,dy:(Math.random()-0.5)*0.3}); }
+function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{ ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='#FFD700';ctx.fill(); p.x+=p.dx;p.y+=p.dy; if(p.x<0||p.x>canvas.width)p.dx*=-1; if(p.y<0||p.y>canvas.height)p.dy*=-1; }); requestAnimationFrame(animate); }
 animate();
-
-renderizarProdutos('pronta'); // carrega inicial
 </script>
 </body>
 </html>
