@@ -6,7 +6,7 @@
 <title>PH Imports - iPhones Originais com Garantia</title>
 <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-    body{background:#000;color:#fff;overflow-x:hidden;padding-top:90px;} /* padding pra não cobrir o conteúdo */
+    body{background:#000;color:#fff;overflow-x:hidden;}
     
     /* FUNDO GALAXIA */
     #particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:radial-gradient(circle at 50% 50%, #05051a 0%, #000 100%);}
@@ -17,30 +17,25 @@
         justify-content:space-between;
         align-items:center;
         padding:15px 5%;
-        background:transparent; /* sem fundo */
-        position:fixed; /* fica parado no topo */
+        background:transparent;
+        position:fixed;
         top:0;
         left:0;
         width:100%;
         z-index:100;
     }
-    
-    /* LOGO FEITO EM CSS - IDÊNTICO */
     .logo{
         font-size:28px;
         font-weight:900;
-        color:#FFD700; /* Dourado */
+        color:#FFD700;
         letter-spacing:2px;
         text-shadow: 
             0 0 5px rgba(255,215,0,0.8),
             0 0 10px rgba(255,215,0,0.6),
-            0 0 20px rgba(255,215,0,0.4); /* brilho dourado */
-        font-family: 'Arial Black', 'Impact', sans-serif; /* fonte forte igual a logo */
+            0 0 20px rgba(255,215,0,0.4);
+        font-family: 'Arial Black', 'Impact', sans-serif;
     }
-    .logo span{
-        color:#fff; /* Se quiser "IMPORTS" branco */
-        font-weight:700;
-    }
+    .logo span{ color:#fff; font-weight:700; }
 
     .cart-btn{
         background:#FFD700;
@@ -51,20 +46,31 @@
         cursor:pointer;
         font-weight:bold;
         font-size:14px;
+        box-shadow:0 0 15px rgba(255,215,0,0.4);
     }
     
-    /* BANNER */
-    .banner{text-align:center;padding:60px 5% 40px 5%;}
-    .banner h1{
-        font-size:32px;
-        margin-bottom:15px;
-        text-shadow:0 0 15px rgba(255,215,0,0.5);
-        line-height:1.2;
+    /* BANNER COM IMAGEM */
+    .banner-hero {
+        width: 100%;
+        height: 45vh; /* altura menor, não escandalosa */
+        background-image: url('banner_ph_imports.jpg'); /* troque pelo nome da imagem que tu subir */
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 70px; /* espaço do header fixo */
     }
-    .banner p{font-size:14px;margin-bottom:30px;color:#ccc;line-height:1.5;}
+    .banner-hero::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); /* escurecer pra dar contraste */
+    }
     
     /* PILARES */
-    .pilares{display:flex;flex-direction:column;gap:15px;margin-top:30px;max-width:400px;margin-left:auto;margin-right:auto;}
+    .pilares{display:flex;flex-direction:column;gap:15px;margin:30px auto;max-width:400px;padding:0 5%;}
     .pilar{
         background:rgba(20,20,20,0.6);
         border:1px solid #FFD700;
@@ -101,9 +107,9 @@
 
     @media(max-width: 768px){
         .logo{font-size:22px;letter-spacing:1px;}
-        .banner h1{font-size:28px;}
+        .banner-hero{height: 35vh;}
         .pilar{font-size:14px;}
-        body{padding-top:75px;}
+        header{padding:12px 5%;}
     }
 </style>
 </head>
@@ -112,14 +118,18 @@
 
 <header>
     <div class="logo">
-        PH <span>IMPORTS</span> <!-- Letreiro feito no código -->
+        PH <span>IMPORTS</span>
     </div>
     <button class="cart-btn">Carrinho (0)</button>
 </header>
 
-<section class="banner">
-    <h1>iPhones<br>Originais com<br>Garantia</h1>
-    <p>100% Lacrado | Pague na Entrega | 90<br>Dias de Garantia</p>
+<!-- BANNER COM A FOTO -->
+<section class="banner-hero">
+    <!-- A imagem vai como background no CSS. 
+         Salve a imagem que gerei como banner_ph_imports.jpg e suba junto -->
+</section>
+
+<section style="padding:0 5%;">
     <div class="pilares">
         <div class="pilar">🛡️ Garantia de 90 dias</div>
         <div class="pilar">✅ 100% Original Lacrado</div>
@@ -145,6 +155,8 @@ let particles = [];
 for(let i=0; i<120; i++){ particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2,dx:(Math.random()-0.5)*0.3,dy:(Math.random()-0.5)*0.3}); }
 function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{ ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='#FFD700';ctx.fill(); p.x+=p.dx;p.y+=p.dy; if(p.x<0||p.x>canvas.width)p.dx*=-1; if(p.y<0||p.y>canvas.height)p.dy*=-1; }); requestAnimationFrame(animate); }
 animate();
+
+// AQUI DEPOIS A GENTE COLOCA: PUXAR PRODUTOS DA PLANILHA + CARRINHO
 </script>
 </body>
 </html>
