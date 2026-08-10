@@ -38,12 +38,13 @@
         50% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(255,215,0,1); }
     }
 
-    /* SEÇÕES */
- .pilares,.produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
+    /* SEÇÕES - TIREI O FUNDO DA SECTION PILARES */
+ .produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
+ .pilares{max-width: 1200px;margin: 40px auto;padding: 0 20px;text-align: center;background: transparent;} /* SEM FUNDO AGORA */
 
-    /* PILARES SIMPLES - 3 QUADRADINHOS LADO A LADO */
- .grid-pilares{display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap;}
- .pilar{background: rgba(0,0,0,0.3);border:1px solid rgba(255,215,0,0.3);padding:12px 18px;border-radius:10px;font-weight:600;font-size:14px;color:#FFD700;white-space:nowrap;}
+    /* PILARES SIMPLES - SÓ TEXTO LADO A LADO */
+ .grid-pilares{display: flex; justify-content: center; gap: 30px; margin-top: 0; flex-wrap: wrap;}
+ .pilar{font-weight:700;font-size:16px;color:#FFD700;white-space:nowrap;letter-spacing:1px;text-shadow:0 2px 8px rgba(0,0,0,0.6);}
 
     /* ABAS */
  .tabs{display:flex;justify-content:center;gap:15px;margin:30px 0;flex-wrap:wrap;}
@@ -86,7 +87,8 @@
     @media(max-width: 768px){
     .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
     .apple-icon{width: 35px; height: 35px;}
-    .pilar{font-size:13px;padding:10px 14px;}
+    .pilar{font-size:15px;}
+    .grid-pilares{gap:20px;}
     .grid-encomenda{grid-template-columns:1fr;}
     }
 </style>
