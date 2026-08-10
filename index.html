@@ -11,18 +11,43 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; backgr
 #video-bg {position: fixed;top: 0;left: 0;width: 100%;height: 100%;object-fit: cover;z-index: -2;}
 .overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
 
-.header { position: relative; text-align: center; padding: 40px 20px; }
-.header img { width: 100%; height: auto; display: block; }
+.header { position: relative; text-align: center; padding: 80px 20px 40px 20px; }
 
-.logo-text {font-size: 4rem;font-weight: 900;color: #FFD700;text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 30px rgba(255,215,0,0.8);display: inline-flex;align-items: center;gap: 15px;letter-spacing: 4px;animation: glowPulse 2s ease-in-out infinite;margin-bottom: 25px;}
-.apple-icon {width: 50px;height: 50px;fill: #FFD700;filter: drop-shadow(0 0 12px rgba(255,215,0,0.9));}
-@keyframes glowPulse {0%, 100% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.7); }50% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(255,215,0,1); }}
-.frase-destaque {font-size: 1.8rem;font-weight: 700;color: #FFD700;text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.6);letter-spacing: 2px;}
+/* ===== LETREIRO ARRUMADO IGUAL A FOTO ===== */
+.logo-text {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #FFD700;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 30px rgba(255,215,0,0.8);
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    letter-spacing: 4px;
+    animation: glowPulse 2s ease-in-out infinite;
+    margin-bottom: 25px;
+}
+.apple-icon {
+    width: 50px;
+    height: 50px;
+    fill: #FFD700;
+    filter: drop-shadow(0 0 12px rgba(255,215,0,0.9));
+}
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.7); }
+    50% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(255,215,0,1); }
+}
+.frase-destaque {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFD700;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.6);
+    letter-spacing: 2px;
+}
+/* ===== FIM LETREIRO ===== */
 
 .page { display: block; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
 .page h2 { color: #FFD700; text-align: center; font-size: 28px; margin-bottom: 30px; }
 
-/* SEÇÃO IGUAL DAS CESTAS */
 .section-box { background: rgba(0,0,0,0.4); border-radius: 15px; padding: 30px 20px; margin-bottom: 60px; backdrop-filter: blur(8px); }
 .catalogo { display: flex; gap: 20px; overflow-x: auto; padding: 20px 10px; scroll-snap-type: x mandatory; scroll-behavior: smooth;}
 .catalogo::-webkit-scrollbar {height: 10px;}
@@ -72,6 +97,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; backgr
 <div class="overlay"></div>
 
 <div class="header">
+  <!-- LETREIRO VOLTOU IGUAL A FOTO -->
   <h1 class="logo-text">
         PH IMPORTS
         <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1-52.6 16.4-67.9 34-15.8 17.7-29.7 46.3-25 72.1 29.2 2.3 49.7-32.8 68.9-33.6z"/></svg>
@@ -81,17 +107,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; backgr
 
 <div id="home" class="page">
 
-  <!-- 1. PRONTA ENTREGA -->
+  <!-- 1. PRONTA ENTREGA - PUXA DO CSV -->
   <div class="section-box">
     <h2>🔥 PRONTA ENTREGA</h2>
     <div id="catalogo-pronta" class="catalogo"><div class="loading">Carregando...</div></div>
   </div>
 
-  <!-- 2. ENCOMENDA -->
+  <!-- 2. ENCOMENDA - PRODUTOS FAKE VOLTARAM -->
   <div class="section-box">
     <h2>ENCOMENDA</h2>
     <div class="aviso-encomenda">⚠️ Encomenda mediante sinal de 30% do valor do produto</div>
-    <div id="catalogo-encomenda" class="catalogo"><div class="loading">Carregando...</div></div>
+    <div id="catalogo-encomenda" class="catalogo"></div>
   </div>
 
 </div>
@@ -104,18 +130,18 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; backgr
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJNROg5_zMaA2tjMYW_8hr7K-ufdX3TVXQS_61nCkMAmr9-Ir01EyHOcX5m2h3haZL-XkotesF0Brj/pub?output=csv";
 const NUMERO_WHATSAPP = "5551984254783";
 
-// BANCO DE IMAGENS
-const imagensApple = {
-    "iPhone X": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-x-select-2017?wid=940&hei=1112&fmt=png-alpha",
-    "iPhone 11": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-select-2019?wid=940&hei=1112&fmt=png-alpha",
-    "iPhone 12": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-select-2020?wid=940&hei=1112&fmt=png-alpha",
-    "iPhone 13": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=940&hei=1112&fmt=png-alpha",
-    "iPhone 14": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-select-2022?wid=940&hei=1112&fmt=png-alpha",
-    "iPhone 15": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-select-2023?wid=940&hei=1112&fmt=png-alpha",
-    "iPhone 15 Pro Max": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-select-2023?wid=940&hei=1112&fmt=png-alpha",
-    "iPhone 16": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-select-2024?wid=940&hei=1112&fmt=png-alpha",
-    "iPhone 16 Pro Max": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-select-2024?wid=940&hei=1112&fmt=png-alpha"
-};
+// ===== PRODUTOS FAKE X ATÉ 16 PRO MAX =====
+const produtosFake = [
+    {nome: "iPhone X", preco: "2499,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-x-select-2017?wid=940&hei=1112&fmt=png-alpha", desc: "64GB / 256GB\nTela OLED 5.8"},
+    {nome: "iPhone 11", preco: "2999,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-select-2019?wid=940&hei=1112&fmt=png-alpha", desc: "64GB / 128GB / 256GB\nTela LCD 6.1"},
+    {nome: "iPhone 12", preco: "3499,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-select-2020?wid=940&hei=1112&fmt=png-alpha", desc: "64GB / 128GB / 256GB\nTela OLED 6.1"},
+    {nome: "iPhone 13", preco: "3999,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=940&hei=1112&fmt=png-alpha", desc: "128GB / 256GB / 512GB\nTela OLED 6.1"},
+    {nome: "iPhone 14", preco: "4499,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-select-2022?wid=940&hei=1112&fmt=png-alpha", desc: "128GB / 256GB / 512GB\nTela OLED 6.1"},
+    {nome: "iPhone 15", preco: "4999,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-select-2023?wid=940&hei=1112&fmt=png-alpha", desc: "128GB / 256GB / 512GB\nTela OLED 6.1"},
+    {nome: "iPhone 15 Pro Max", preco: "7999,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-select-2023?wid=940&hei=1112&fmt=png-alpha", desc: "256GB / 512GB / 1TB\nTela OLED 6.7"},
+    {nome: "iPhone 16", preco: "5499,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-select-2024?wid=940&hei=1112&fmt=png-alpha", desc: "128GB / 256GB / 512GB\nTela OLED 6.1"},
+    {nome: "iPhone 16 Pro Max", preco: "8999,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-select-2024?wid=940&hei=1112&fmt=png-alpha", desc: "256GB / 512GB / 1TB\nTela OLED 6.9"}
+];
 
 function parseCSV(text) {
   const rows = []; let row = [], cell = '', inQuotes = false;
@@ -131,21 +157,11 @@ function parseCSV(text) {
   return rows.slice(1).map(r => Object.fromEntries(headers.map((h, i) => [h.trim(), r[i]?.trim() || ''])));
 }
 
-function pegarImagem(modelo) {
-    for(const key in imagensApple){
-        if(modelo.toLowerCase().includes(key.toLowerCase())){
-            return imagensApple[key];
-        }
-    }
-    return `https://via.placeholder.com/260x220/222/FFD700?text=${encodeURIComponent(modelo)}`;
-}
-
-function criarCard(produto) {
-  const modelo = produto['Modelo'];
-  const valor = produto['Valor'];
-  const espec = produto['Especificações'];
-  const disponibilidade = produto['Disponibilidade'];
-  const img = pegarImagem(modelo);
+function criarCard(produto, ehFake = false) {
+  const modelo = ehFake? produto.nome : produto['Modelo'];
+  const valor = ehFake? produto.preco : produto['Valor'];
+  const espec = ehFake? produto.desc : produto['Especificações'];
+  const img = ehFake? produto.img : `https://via.placeholder.com/260x220/222/FFD700?text=${encodeURIComponent(modelo)}`;
   const precoNum = parseFloat(valor.replace(/[^0-9,]/g, '').replace(',', '.')) || 0;
   const sinal = (precoNum * 0.3).toFixed(2).replace('.',',');
 
@@ -159,7 +175,7 @@ function criarCard(produto) {
           <div class="info">
             <h3>${modelo}</h3>
             <p class="preco">R$ ${valor}</p>
-            ${disponibilidade === 'Encomenda'? `<p class="sinal">Sinal 30%: R$ ${sinal}</p>` : ''}
+            ${ehFake? `<p class="sinal">Sinal 30%: R$ ${sinal}</p>` : ''}
             <button class="btn-pedir" onclick="event.stopPropagation(); window.open('https://wa.me/${NUMERO_WHATSAPP}?text=Olá! Tenho interesse no ${modelo} por R$ ${valor}', '_blank')">Comprar no Whats</button>
           </div>
         </div>
@@ -174,31 +190,33 @@ function criarCard(produto) {
 }
 
 async function carregarProdutos() {
+  const containerPronta = document.getElementById('catalogo-pronta');
+  const containerEncomenda = document.getElementById('catalogo-encomenda');
+
+  // 1. CARREGA OS FAKES NA ENCOMENDA PRIMEIRO
+  produtosFake.forEach(p => {
+      containerEncomenda.innerHTML += criarCard(p, true);
+  });
+
+  // 2. CARREGA OS REAIS DA PLANILHA NA PRONTA ENTREGA
   try {
     const res = await fetch(CSV_URL);
     const texto = await res.text();
     const dados = parseCSV(texto).filter(p => p['Modelo']);
 
-    const containerPronta = document.getElementById('catalogo-pronta');
-    const containerEncomenda = document.getElementById('catalogo-encomenda');
     containerPronta.innerHTML = '';
-    containerEncomenda.innerHTML = '';
 
     dados.forEach(produto => {
-        const card = criarCard(produto);
         if(produto['Disponibilidade'] === 'Pronta Entrega'){
-            containerPronta.innerHTML += card;
-        } else if(produto['Disponibilidade'] === 'Encomenda'){
-            containerEncomenda.innerHTML += card;
+            containerPronta.innerHTML += criarCard(produto, false);
         }
     });
 
     if(containerPronta.innerHTML === '') containerPronta.innerHTML = '<p style="width:100%;text-align:center;">Nenhum produto em pronta entrega</p>'
-    if(containerEncomenda.innerHTML === '') containerEncomenda.innerHTML = '<p style="width:100%;text-align:center;">Nenhum produto em encomenda</p>'
 
   } catch(e) {
     console.error(e);
-    document.querySelectorAll('.catalogo').forEach(c => c.innerHTML = '<p>Erro ao carregar. Verifica se a planilha está publicada.</p>');
+    containerPronta.innerHTML = '<p>Erro ao carregar CSV</p>';
   }
 }
 
