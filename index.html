@@ -5,256 +5,200 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PH IMPORTS - iPhones Originais com Garantia</title>
 <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', sans-serif;scroll-behavior:smooth;}
-    body{color:#fff; overflow-x:hidden;}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial; background: #000; color: #fff; overflow-x: hidden; }
 
-    /* VÍDEO DE FUNDO */
-    #video-bg {position: fixed;top: 0;left: 0;width: 100%;height: 100%;object-fit: cover;z-index: -2;}
-  .overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
+/* VÍDEO DE FUNDO */
+#video-bg {position: fixed;top: 0;left: 0;width: 100%;height: 100%;object-fit: cover;z-index: -2;}
+.overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
 
-    /* HEADER */
-    header{text-align: center;padding: 80px 20px 40px 20px;background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);}
+.header {text-align: center; padding: 80px 20px 40px 20px; position: relative; z-index: 1;}
+.logo-text {font-size: 4rem;font-weight: 900;color: #FFD700;text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 30px rgba(255,215,0,0.8);display: inline-flex;align-items: center;gap: 15px;letter-spacing: 4px;animation: glowPulse 2s ease-in-out infinite;margin-bottom: 25px;}
+.apple-icon {width: 50px;height: 50px;fill: #FFD700;filter: drop-shadow(0 0 12px rgba(255,215,0,0.9));}
+@keyframes glowPulse {0%, 100% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.7); }50% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(255,215,0,1); }}
+.frase-destaque {font-size: 1.8rem;font-weight: 700;color: #FFD700;text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.6);letter-spacing: 2px;}
 
-    /* LETREIRO PH IMPORTS + MAÇÃ */
-  .logo-text {
-        font-size: 4rem;
-        font-weight: 900;
-        color: #FFD700;
-        text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 30px rgba(255,215,0,0.8);
-        display: inline-flex;
-        align-items: center;
-        gap: 15px;
-        letter-spacing: 4px;
-        animation: glowPulse 2s ease-in-out infinite;
-        margin-bottom: 25px;
-    }
-  .apple-icon {
-        width: 50px;
-        height: 50px;
-        fill: #FFD700;
-        filter: drop-shadow(0 0 12px rgba(255,215,0,0.9));
-    }
-    @keyframes glowPulse {
-        0%, 100% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.7); }
-        50% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(255,215,0,1); }
-    }
+.section {max-width: 1200px; margin: 60px auto; padding: 0 20px; position: relative; z-index: 1;}
+.section h2 {color: #FFD700; text-align: center; font-size: 28px; margin-bottom: 30px; letter-spacing: 2px;}
 
-    /* FRASE DOURADA COM! */
-  .frase-destaque {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #FFD700; /* AGORA DOURADA */
-        text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.6);
-        letter-spacing: 2px;
-        animation: fadeInUp 1.5s ease;
-    }
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+/* CARRINHO HORIZONTAL IGUAL DAS CESTAS */
+.catalogo { display: flex; gap: 20px; overflow-x: auto; padding: 20px 10px; scroll-snap-type: x mandatory; scroll-behavior: smooth;}
+.catalogo::-webkit-scrollbar {height: 10px;}
+.catalogo::-webkit-scrollbar-thumb {background: #FFD700; border-radius: 10px;}
+.catalogo::-webkit-scrollbar-track {background: rgba(255,255,255,0.1);}
 
-    /* SEÇÕES */
-  .produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
+.card-wrapper {perspective: 1000px; position: relative; min-width: 280px; scroll-snap-align: start; flex-shrink: 0;}
+.card {position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer;}
+.card.flipped { transform: rotateY(180deg); }
 
-    /* ABAS */
-  .tabs{display:flex;justify-content:center;gap:15px;margin:30px 0;flex-wrap:wrap;}
-  .tab-btn{padding:12px 25px;background:rgba(0,0,0,0.3);border:2px solid #FFD700;color:#FFD700;border-radius:30px;cursor:pointer;font-weight:bold;transition:0.3s;font-size:14px;backdrop-filter:blur(5px);}
-  .tab-btn.active{background:#FFD700;color:#000;box-shadow:0 0 15px rgba(255,215,0,0.5);}
-  .aba-conteudo{display:none;}
-  .aba-conteudo.ativa{display:block;}
+.card-face {position: relative; width: 100%; backface-visibility: hidden; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); overflow: hidden; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,215,0,0.2); backdrop-filter: blur(10px); display: flex; flex-direction: column; text-align: center;}
+.card-back {position: absolute; top: 0; left: 0; height: 100%; transform: rotateY(180deg); background: #1a1a1a; color: #fff; padding: 25px 20px; border-radius: 20px; justify-content: center; display: flex; flex-direction: column;}
 
-    /* CARROSSEL NAS DUAS ABAS */
-  .grid-produtos{display:flex;gap: 25px;overflow-x:auto;padding:20px 10px;scroll-snap-type:x mandatory;scroll-behavior:smooth;}
-  .grid-produtos::-webkit-scrollbar{height:8px;}
-  .grid-produtos::-webkit-scrollbar-thumb{background:#FFD700;border-radius:10px;}
-  .grid-produtos.card-produto{min-width: 280px;scroll-snap-align:start;flex-shrink:0;}
+.img-container {width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: rgba(0,0,0,0.3);}
+.card-front img {width: 100%; height: 100%; object-fit: contain; display: block; padding: 15px;}
+.card-front.info {padding: 16px 15px 20px 15px; display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; flex: 1;}
+.card-front h3 { font-size: 18px; color: #FFD700; font-weight: 700; margin: 0; min-height: 45px;}
+.preco { font-weight:bold; color:#fff; font-size:24px; margin: 0; }
+.sinal {font-size: 15px;color:#FFD700;font-weight:600;margin: 0;}
+.btn-pedir { background: #FFD700; color: #000; padding: 14px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; width: 90%; margin: 0 auto; display: block; font-size: 16px; border: none; cursor: pointer; transition: 0.3s;}
+.btn-pedir:hover {background: #FFC400; transform: scale(1.05);}
 
-  .aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
+.card-back h3 { font-size: 20px; margin-bottom: 15px; color: #FFD700; font-weight: 700; }
+.card-back.descricao {font-size: 15px; line-height: 1.6; white-space: pre-line; text-align: center; overflow-y: auto; flex: 1; color: #ddd;}
+.card-back.dica { font-size: 12px; margin-top: 15px; opacity: 0.8; font-style: italic; color: #FFD700; }
 
-    /* PRODUTOS */
-  .card-produto{background: rgba(0,0,0,0.35);border-radius: 20px;overflow: hidden;box-shadow: 0 8px 25px rgba(0,0,0,0.4);transition: 0.3s;border: 1px solid rgba(255,215,0,0.2);backdrop-filter: blur(10px);text-align: left;}
-  .card-produto:hover{transform: translateY(-10px);box-shadow: 0 15px 40px rgba(255,215,0,0.3);border-color: #FFD700;}
-  .card-produto img{width: 100%;height: 220px;object-fit: contain;background: rgba(0,0,0,0.3);padding: 15px;display: block;}
-  .card-conteudo{padding: 20px;}
-  .card-produto h3{color: #FFD700; font-size: 1.5rem; margin-bottom: 8px;}
-  .card-produto p{color: #ddd; margin-bottom: 15px; font-size: 14px;}
-  .preco{font-size: 26px;font-weight:bold;margin:10px 0;color:#fff;}
-  .sinal{font-size: 16px;color:#FFD700;font-weight:600;margin-bottom:10px;}
-  .btn-comprar{display: inline-block;padding: 12px 20px;background: #FFD700;color: #000;text-decoration: none;border-radius: 25px;font-weight: bold;font-size: 1rem;transition: 0.3s;width: 100%;text-align: center;border: none;cursor: pointer;}
-  .btn-comprar:hover{background: #FFC400; transform: scale(1.05);}
-  .loading{text-align: center; padding: 40px; font-size: 1.2rem; color: #FFD700;}
+.aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin:0 auto 30px auto;font-weight:600; max-width:600px; text-align:center;}
 
-    /* WHATS FLUTUANTE */
-  .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
+.whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
+.rodape {text-align: center; padding: 25px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); position: relative; z-index: 1;}
+.credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
+.credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
+.loading { text-align: center; color: #FFD700; font-size: 18px; padding: 40px; width: 100%;}
 
-    /* FOOTER SÓ COM CRÉDITOS */
-    footer{text-align: center; padding: 25px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);}
-  .credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
-  .credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
-
-    @media(max-width: 768px){
-      .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
-      .apple-icon{width: 35px; height: 35px;}
-      .frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
-    }
+@media(max-width: 768px){
+.logo-text{font-size: 2.5rem;}
+.frase-destaque{font-size: 1.3rem; padding: 0 15px;}
+.card-wrapper{min-width: 240px;}
+}
 </style>
 </head>
 <body>
 
-<!-- VÍDEO DE FUNDO -->
-<video autoplay muted loop playsinline id="video-bg">
-    <source src="estatua.mp4" type="video/mp4">
-</video>
+<video autoplay muted loop playsinline id="video-bg"><source src="estatua.mp4" type="video/mp4"></video>
 <div class="overlay"></div>
 
-<header>
+<div class="header">
     <h1 class="logo-text">
         PH IMPORTS
-        <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1-52.6 16.4-67.9 34-15.8 17.7-29.7 46.3-25 72.1 29.2 2.3 49.7-32.8 68.9-33.6z"/>
-        </svg>
+        <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1-52.6 16.4-67.9 34-15.8 17.7-29.7 46.3-25 72.1 29.2 2.3 49.7-32.8 68.9-33.6z"/></svg>
     </h1>
-    <!-- FRASE ATUALIZADA -->
     <p class="frase-destaque">Seu próximo iPhone está aqui!</p>
-</header>
+</div>
 
-<section class="produtos-section">
-    <div class="tabs">
-        <button class="tab-btn active" onclick="abrirAba('pronta')">Pronta Entrega</button>
-        <button class="tab-btn" onclick="abrirAba('encomenda')">Encomenda</button>
-    </div>
+<!-- SEÇÃO PRONTA ENTREGA -->
+<div class="section">
+    <h2>🔥 PRONTA ENTREGA</h2>
+    <div id="catalogo-pronta" class="catalogo"><div class="loading">Carregando produtos...</div></div>
+</div>
 
-    <!-- ABA PRONTA ENTREGA - CARROSSEL -->
-    <div id="pronta" class="aba-conteudo ativa">
-        <h2>Pronta Entrega</h2>
-        <div class="grid-produtos" id="lista-pronta">
-            <!-- PRODUTOS FICTÍCIOS PRA TESTE -->
-        </div>
-    </div>
-
-    <!-- ABA ENCOMENDA - CARROSSEL TAMBÉM -->
-    <div id="encomenda" class="aba-conteudo">
-        <h2>Encomenda</h2>
-        <div class="aviso-encomenda">
-            ⚠️ Encomenda mediante sinal de 30% do valor do produto
-        </div>
-        <div class="grid-produtos" id="lista-encomenda">
-            <!-- PRODUTOS FICTÍCIOS PRA TESTE -->
-        </div>
-    </div>
-</section>
+<!-- SEÇÃO ENCOMENDA -->
+<div class="section">
+    <h2>ENCOMENDA</h2>
+    <div class="aviso-encomenda">⚠️ Encomenda mediante sinal de 30% do valor do produto</div>
+    <div id="catalogo-encomenda" class="catalogo"><div class="loading">Carregando produtos...</div></div>
+</div>
 
 <a href="https://wa.me/5551984254783" class="whats" target="_blank">💬</a>
 
-<footer>
+<div class="rodape">
     <p class="credito">Desenvolvido por <a href="https://wa.me/SEU_NUMERO_AQUI" target="_blank">Edmilson Bittencourt</a></p>
-</footer>
+</div>
 
 <script>
-const CSV_URL = "COLA_AQUI_O_LINK_DA_SUA_PLANILHA_CSV";
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJNROg5_zMaA2tjMYW_8hr7K-ufdX3TVXQS_61nCkMAmr9-Ir01EyHOcX5m2h3haZL-XkotesF0Brj/pub?output=csv";
+const NUMERO_WHATSAPP = "5551984254783";
 
-// PRODUTOS FICTÍCIOS DO X AO 15 PRO MAX
-const produtosExemplo = [
-    {nome: "iPhone X", preco: "2499,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-x-select-2017?wid=940&hei=1112&fmt=png-alpha"},
-    {nome: "iPhone 11", preco: "2999,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-select-2019?wid=940&hei=1112&fmt=png-alpha"},
-    {nome: "iPhone 12", preco: "3499,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-select-2020?wid=940&hei=1112&fmt=png-alpha"},
-    {nome: "iPhone 13", preco: "3999,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=940&hei=1112&fmt=png-alpha"},
-    {nome: "iPhone 14", preco: "4499,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-select-2022?wid=940&hei=1112&fmt=png-alpha"},
-    {nome: "iPhone 15", preco: "4999,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-select-2023?wid=940&hei=1112&fmt=png-alpha"},
-    {nome: "iPhone 15 Pro Max", preco: "7999,00", img: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-select-2023?wid=940&hei=1112&fmt=png-alpha"}
-];
-
-function abrirAba(aba) {
-    document.querySelectorAll('.aba-conteudo').forEach(el => el.classList.remove('ativa'));
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-    document.getElementById(aba).classList.add('ativa');
-    event.target.classList.add('active');
-}
-
-function converterLinkDrive(link) {
-  if(!link) return "";
-  link = link.replace(/"/g, '').trim();
-  const match = link.match(/\/d\/([a-zA-Z0-9-_]+)/);
-  if (match && match[1]) return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
-  return link;
-}
+// BANCO DE IMAGENS OFICIAIS DA APPLE
+const imagensApple = {
+    "iPhone X": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-x-select-2017?wid=940&hei=1112&fmt=png-alpha",
+    "iPhone 11": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-11-select-2019?wid=940&hei=1112&fmt=png-alpha",
+    "iPhone 12": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-select-2020?wid=940&hei=1112&fmt=png-alpha",
+    "iPhone 13": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=940&hei=1112&fmt=png-alpha",
+    "iPhone 14": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-select-2022?wid=940&hei=1112&fmt=png-alpha",
+    "iPhone 15": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-select-2023?wid=940&hei=1112&fmt=png-alpha",
+    "iPhone 15 Pro Max": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-select-2023?wid=940&hei=1112&fmt=png-alpha",
+    "iPhone 16": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-select-2024?wid=940&hei=1112&fmt=png-alpha",
+    "iPhone 16 Pro Max": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-select-2024?wid=940&hei=1112&fmt=png-alpha"
+};
 
 function parseCSV(text) {
-  const rows = [];
-  let row = [], cell = '', inQuotes = false;
+  const rows = []; let row = [], cell = '', inQuotes = false;
   for (let i = 0; i < text.length; i++) {
     const char = text[i], next = text[i+1];
-    if (char === '"') {
-      if (inQuotes && next === '"') { cell += '"'; i++; }
-      else { inQuotes =!inQuotes; }
-    } else if (char === ',' &&!inQuotes) {
-      row.push(cell); cell = '';
-    } else if ((char === '\n' || char === '\r') &&!inQuotes) {
-      if (cell!== '' || row.length > 0) { row.push(cell); rows.push(row); row = []; cell = ''; }
-      if (char === '\r' && next === '\n') i++;
-    } else { cell += char; }
+    if (char === '"') { if (inQuotes && next === '"') { cell += '"'; i++; } else { inQuotes =!inQuotes; } }
+    else if (char === ',' &&!inQuotes) { row.push(cell); cell = ''; }
+    else if ((char === '\n' || char === '\r') &&!inQuotes) { if (cell!== '' || row.length > 0) { row.push(cell); rows.push(row); row = []; cell = ''; } if (char === '\r' && next === '\n') i++; }
+    else { cell += char; }
   }
   if (cell!== '' || row.length > 0) { row.push(cell); rows.push(row); }
   const headers = rows[0];
   return rows.slice(1).map(r => Object.fromEntries(headers.map((h, i) => [h.trim(), r[i]?.trim() || ''])));
 }
 
-function criarCard(produto, categoria) {
-    const preco = parseFloat(produto['Preco'].replace(',','.')) || parseFloat(produto.preco.replace(',','.')) || 0;
-    const sinal = (preco * 0.3).toFixed(2).replace('.',',');
-    const nome = produto['Produto'] || produto.nome;
-    const img = produto['Imagem'] || produto.img;
+function pegarImagem(modelo) {
+    // Procura se o nome do modelo está no nosso banco de imagens
+    for(const key in imagensApple){
+        if(modelo.toLowerCase().includes(key.toLowerCase())){
+            return imagensApple[key];
+        }
+    }
+    return `https://via.placeholder.com/280x220/000/FFD700?text=${encodeURIComponent(modelo)}`;
+}
 
-    return `
-        <div class="card-produto">
-            <img src="${img}" alt="${nome}" onerror="this.src='https://via.placeholder.com/400x220/000/FFD700?text=${encodeURIComponent(nome)}'">
-            <div class="card-conteudo">
-                <h3>${nome}</h3>
-                <p>iPhone Original com Garantia</p>
-                <div class="preco">R$ ${produto['Preco'] || produto.preco}</div>
-                ${categoria === 'Encomenda'? `<div class="sinal">Sinal 30%: R$ ${sinal}</div>` : ''}
-                <button class="btn-comprar" onclick="window.open('https://wa.me/5551984254783?text=Olá! Tenho interesse no ${nome} por R$ ${produto['Preco'] || produto.preco}', '_blank')">Comprar no Whats</button>
-            </div>
+function criarCard(produto) {
+  const modelo = produto['Modelo'];
+  const valor = produto['Valor'];
+  const espec = produto['Especificações'];
+  const disponibilidade = produto['Disponibilidade'];
+  const img = pegarImagem(modelo);
+  const precoNum = parseFloat(valor.replace(/[^0-9,]/g, '').replace(',', '.')) || 0;
+  const sinal = (precoNum * 0.3).toFixed(2).replace('.',',');
+
+  return `
+    <div class="card-wrapper">
+      <div class="card" onclick="this.classList.toggle('flipped')">
+        <div class="card-face card-front">
+          <div class="img-container">
+            <img src="${img}" alt="${modelo}">
+          </div>
+          <div class="info">
+            <h3>${modelo}</h3>
+            <p class="preco">R$ ${valor}</p>
+            ${disponibilidade === 'Encomenda'? `<p class="sinal">Sinal 30%: R$ ${sinal}</p>` : ''}
+            <button class="btn-pedir" onclick="event.stopPropagation(); window.open('https://wa.me/${NUMERO_WHATSAPP}?text=Olá! Tenho interesse no ${modelo} por R$ ${valor}', '_blank')">Comprar no Whats</button>
+          </div>
         </div>
-    `;
+        <div class="card-face card-back">
+          <h3>Especificações</h3>
+          <div class="descricao">${espec || 'iPhone Original com Garantia'}</div>
+          <p class="dica">Toque novamente para voltar</p>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 async function carregarProdutos() {
-    const containerPronta = document.getElementById('lista-pronta');
-    const containerEncomenda = document.getElementById('lista-encomenda');
+    const containerPronta = document.getElementById('catalogo-pronta');
+    const containerEncomenda = document.getElementById('catalogo-encomenda');
 
-    // CARREGA EXEMPLOS FICTÍCIOS PRIMEIRO
-    produtosExemplo.forEach(p => {
-        containerPronta.innerHTML += criarCard(p, 'Pronta Entrega');
-        containerEncomenda.innerHTML += criarCard(p, 'Encomenda');
-    });
-
-    // DEPOIS TENTA CARREGAR O CSV REAL
     try {
         const res = await fetch(CSV_URL);
         const data = await res.text();
-        const dados = parseCSV(data).filter(p => p['Produto']);
+        const dados = parseCSV(data).filter(p => p['Modelo']);
 
-        if(dados.length > 0){
-            containerPronta.innerHTML = '';
-            containerEncomenda.innerHTML = '';
-            dados.forEach(produto => {
-                const card = criarCard(produto, produto['Categoria']);
-                if(produto['Categoria'] === 'Pronta Entrega'){
-                    containerPronta.innerHTML += card;
-                } else if(produto['Categoria'] === 'Encomenda'){
-                    containerEncomenda.innerHTML += card;
-                }
-            });
-        }
+        containerPronta.innerHTML = '';
+        containerEncomenda.innerHTML = '';
+
+        dados.forEach(produto => {
+            const card = criarCard(produto);
+            if(produto['Disponibilidade'] === 'Pronta Entrega'){
+                containerPronta.innerHTML += card;
+            } else if(produto['Disponibilidade'] === 'Encomenda'){
+                containerEncomenda.innerHTML += card;
+            }
+        });
+
+        if(containerPronta.innerHTML === '') containerPronta.innerHTML = '<p style="color:#FFD700;width:100%;text-align:center;">Nenhum produto em pronta entrega</p>'
+        if(containerEncomenda.innerHTML === '') containerEncomenda.innerHTML = '<p style="color:#FFD700;width:100%;text-align:center;">Nenhum produto em encomenda</p>'
 
     } catch (erro) {
-        console.log("Usando produtos de exemplo. Cole o link do CSV pra carregar os reais.");
+        containerPronta.innerHTML = '<p style="color:#FF0000;width:100%;text-align:center;">Erro ao carregar CSV</p>';
+        console.error(erro);
     }
 }
 
 carregarProdutos();
 </script>
-
 </body>
 </html>
