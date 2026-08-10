@@ -10,13 +10,13 @@
 
     /* VÍDEO DE FUNDO */
     #video-bg {position: fixed;top: 0;left: 0;width: 100%;height: 100%;object-fit: cover;z-index: -2;}
- .overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
+  .overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
 
     /* HEADER */
     header{text-align: center;padding: 80px 20px 40px 20px;background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);}
 
-    /* LETREIRO PH IMPORTS + MAÇÃ NO FIM - CORRIGIDO */
- .logo-text {
+    /* LETREIRO PH IMPORTS + MAÇÃ NOVA */
+  .logo-text {
         font-size: 4rem;
         font-weight: 900;
         color: #FFD700;
@@ -26,14 +26,12 @@
         gap: 15px;
         letter-spacing: 4px;
         animation: glowPulse 2s ease-in-out infinite;
-        flex-wrap: nowrap; /* impede de quebrar */
     }
- .apple-icon {
+  .apple-icon {
         width: 50px;
         height: 50px;
-        fill: currentColor; /* pega a cor do texto dourado */
+        fill: #FFD700; /* força dourado direto */
         filter: drop-shadow(0 0 12px rgba(255,215,0,0.9));
-        flex-shrink: 0; /* não deixa encolher */
     }
     @keyframes glowPulse {
         0%, 100% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.7); }
@@ -41,56 +39,55 @@
     }
 
     /* SEÇÕES */
- .pilares,.produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
+  .pilares,.produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
 
-    /* PILARES SÚTIS E SEMPRE NA LINHA */
- .grid-pilares{display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: nowrap; overflow-x: auto;}
- .grid-pilares::-webkit-scrollbar{height:4px;}
- .grid-pilares::-webkit-scrollbar-thumb{background:rgba(255,215,0,0.3);border-radius:10px;}
- .pilar{background: rgba(255,215,0,0.1);border:1px solid #FFD700;padding:14px 20px;border-radius:12px;font-weight:600;font-size:15px;backdrop-filter:blur(5px);white-space:nowrap;flex-shrink:0;}
+    /* PILARES LIMPOS E NA LINHA - SEM FUNDO */
+  .grid-pilares{display: flex; justify-content: center; align-items: center; gap: 30px; margin-top: 20px; flex-wrap: wrap;}
+  .pilar{font-weight:700;font-size:18px;color:#FFD700;letter-spacing:1px;text-shadow:0 2px 8px rgba(0,0,0,0.5);}
 
     /* ABAS */
- .tabs{display:flex;justify-content:center;gap:15px;margin:30px 0;flex-wrap:wrap;}
- .tab-btn{padding:12px 25px;background:rgba(0,0,0,0.3);border:2px solid #FFD700;color:#FFD700;border-radius:30px;cursor:pointer;font-weight:bold;transition:0.3s;font-size:14px;backdrop-filter:blur(5px);}
- .tab-btn.active{background:#FFD700;color:#000;box-shadow:0 0 15px rgba(255,215,0,0.5);}
- .aba-conteudo{display:none;}
- .aba-conteudo.ativa{display:block;}
+  .tabs{display:flex;justify-content:center;gap:15px;margin:30px 0;flex-wrap:wrap;}
+  .tab-btn{padding:12px 25px;background:rgba(0,0,0,0.3);border:2px solid #FFD700;color:#FFD700;border-radius:30px;cursor:pointer;font-weight:bold;transition:0.3s;font-size:14px;backdrop-filter:blur(5px);}
+  .tab-btn.active{background:#FFD700;color:#000;box-shadow:0 0 15px rgba(255,215,0,0.5);}
+  .aba-conteudo{display:none;}
+  .aba-conteudo.ativa{display:block;}
 
     /* PRONTA ENTREGA - CARROSSEL HORIZONTAL */
- .grid-pronta{display:flex;gap: 25px;overflow-x:auto;padding:20px 10px;scroll-snap-type:x mandatory;}
- .grid-pronta::-webkit-scrollbar{height:8px;}
- .grid-pronta::-webkit-scrollbar-thumb{background:#FFD700;border-radius:10px;}
- .grid-pronta.card-produto{min-width: 280px;scroll-snap-align:start;flex-shrink:0;}
+  .grid-pronta{display:flex;gap: 25px;overflow-x:auto;padding:20px 10px;scroll-snap-type:x mandatory;}
+  .grid-pronta::-webkit-scrollbar{height:8px;}
+  .grid-pronta::-webkit-scrollbar-thumb{background:#FFD700;border-radius:10px;}
+  .grid-pronta.card-produto{min-width: 280px;scroll-snap-align:start;flex-shrink:0;}
 
     /* ENCOMENDAS - 2 COLUNAS VERTICAL */
- .grid-encomenda{display:grid;grid-template-columns:repeat(2, 1fr);gap: 30px;margin-top: 30px;}
- .aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
+  .grid-encomenda{display:grid;grid-template-columns:repeat(2, 1fr);gap: 30px;margin-top: 30px;}
+  .aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
 
     /* PRODUTOS */
- .card-produto{background: rgba(0,0,0,0.35);border-radius: 20px;overflow: hidden;box-shadow: 0 8px 25px rgba(0,0,0,0.4);transition: 0.3s;border: 1px solid rgba(255,215,0,0.2);backdrop-filter: blur(10px);text-align: left;}
- .card-produto:hover{transform: translateY(-10px);box-shadow: 0 15px 40px rgba(255,215,0,0.3);border-color: #FFD700;}
- .card-produto img{width: 100%;height: 220px;object-fit: contain;background: rgba(0,0,0,0.3);padding: 15px;display: block;}
- .card-conteudo{padding: 20px;}
- .card-produto h3{color: #FFD700; font-size: 1.5rem; margin-bottom: 8px;}
- .card-produto p{color: #ddd; margin-bottom: 15px; font-size: 14px;}
- .preco{font-size: 26px;font-weight:bold;margin:10px 0;color:#fff;}
- .sinal{font-size: 16px;color:#FFD700;font-weight:600;margin-bottom:10px;}
- .btn-comprar{display: inline-block;padding: 12px 20px;background: #FFD700;color: #000;text-decoration: none;border-radius: 25px;font-weight: bold;font-size: 1rem;transition: 0.3s;width: 100%;text-align: center;border: none;cursor: pointer;}
- .btn-comprar:hover{background: #FFC400; transform: scale(1.05);}
- .loading{text-align: center; padding: 40px; font-size: 1.2rem; color: #FFD700;}
+  .card-produto{background: rgba(0,0,0,0.35);border-radius: 20px;overflow: hidden;box-shadow: 0 8px 25px rgba(0,0,0,0.4);transition: 0.3s;border: 1px solid rgba(255,215,0,0.2);backdrop-filter: blur(10px);text-align: left;}
+  .card-produto:hover{transform: translateY(-10px);box-shadow: 0 15px 40px rgba(255,215,0,0.3);border-color: #FFD700;}
+  .card-produto img{width: 100%;height: 220px;object-fit: contain;background: rgba(0,0,0,0.3);padding: 15px;display: block;}
+  .card-conteudo{padding: 20px;}
+  .card-produto h3{color: #FFD700; font-size: 1.5rem; margin-bottom: 8px;}
+  .card-produto p{color: #ddd; margin-bottom: 15px; font-size: 14px;}
+  .preco{font-size: 26px;font-weight:bold;margin:10px 0;color:#fff;}
+  .sinal{font-size: 16px;color:#FFD700;font-weight:600;margin-bottom:10px;}
+  .btn-comprar{display: inline-block;padding: 12px 20px;background: #FFD700;color: #000;text-decoration: none;border-radius: 25px;font-weight: bold;font-size: 1rem;transition: 0.3s;width: 100%;text-align: center;border: none;cursor: pointer;}
+  .btn-comprar:hover{background: #FFC400; transform: scale(1.05);}
+  .loading{text-align: center; padding: 40px; font-size: 1.2rem; color: #FFD700;}
 
     /* WHATS FLUTUANTE */
- .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
+  .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
 
     /* FOOTER SÓ COM CRÉDITOS */
     footer{text-align: center; padding: 25px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);}
- .credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
- .credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
+  .credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
+  .credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
 
     @media(max-width: 768px){
      .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
      .apple-icon{width: 35px; height: 35px;}
-     .pilar{font-size:14px;padding:12px 16px;}
+     .pilar{font-size:16px;}
+     .grid-pilares{gap:20px;}
      .grid-encomenda{grid-template-columns:1fr;}
     }
 </style>
@@ -106,8 +103,9 @@
 <header>
     <h1 class="logo-text">
         PH IMPORTS
-        <svg class="apple-icon" viewBox="0 0 24 24">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2.77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.55-.8 1.46-1.34 2.03-1.5.05-.06.06-.11.06-.16 0-.09-.06-.18-.19-.24-.8-.36-1.66-.33-2.37.1-.4.24-.73.63-1.02 1.07-.3.44-.53.93-.64 1.39.06.01.13.02.22.02.87 0 1.72-.5 2.2-1.18z"/>
+        <!-- MAÇÃ NOVA SVG QUE FUNCIONA -->
+        <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1-52.6 16.4-67.9 34-15.8 17.7-29.7 46.3-25 72.1 29.2 2.3 49.7-32.8 68.9-33.6z"/>
         </svg>
     </h1>
 </header>
