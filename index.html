@@ -10,13 +10,13 @@
 
     /* VÍDEO DE FUNDO */
     #video-bg {position: fixed;top: 0;left: 0;width: 100%;height: 100%;object-fit: cover;z-index: -2;}
-  .overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
+ .overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
 
     /* HEADER */
     header{text-align: center;padding: 80px 20px 40px 20px;background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);}
 
     /* LETREIRO PH IMPORTS + MAÇÃ */
-  .logo-text {
+ .logo-text {
         font-size: 4rem;
         font-weight: 900;
         color: #FFD700;
@@ -28,7 +28,7 @@
         animation: glowPulse 2s ease-in-out infinite;
         margin-bottom: 25px;
     }
-  .apple-icon {
+ .apple-icon {
         width: 50px;
         height: 50px;
         fill: #FFD700;
@@ -40,7 +40,7 @@
     }
 
     /* FRASE DOURADA COM! */
-  .frase-destaque {
+ .frase-destaque {
         font-size: 1.8rem;
         font-weight: 700;
         color: #FFD700; /* AGORA DOURADA */
@@ -54,48 +54,48 @@
     }
 
     /* SEÇÕES */
-  .produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
+ .produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
+ .produtos-section h2{color:#FFD700; font-size: 2rem; margin-bottom: 20px;}
 
-    /* ABAS */
-  .tabs{display:flex;justify-content:center;gap:15px;margin:30px 0;flex-wrap:wrap;}
-  .tab-btn{padding:12px 25px;background:rgba(0,0,0,0.3);border:2px solid #FFD700;color:#FFD700;border-radius:30px;cursor:pointer;font-weight:bold;transition:0.3s;font-size:14px;backdrop-filter:blur(5px);}
-  .tab-btn.active{background:#FFD700;color:#000;box-shadow:0 0 15px rgba(255,215,0,0.5);}
-  .aba-conteudo{display:none;}
-  .aba-conteudo.ativa{display:block;}
+    /* CARROSSEL PRONTA ENTREGA - HORIZONTAL */
+ .grid-pronta{display:flex;gap: 25px;overflow-x:auto;padding:20px 10px;scroll-snap-type:x mandatory;scroll-behavior:smooth;}
+ .grid-pronta::-webkit-scrollbar{height:10px;}
+ .grid-pronta::-webkit-scrollbar-thumb{background:#FFD700;border-radius:10px;}
+ .grid-pronta.card-produto{min-width: 280px;scroll-snap-align:start;flex-shrink:0;}
 
-    /* CARROSSEL NAS DUAS ABAS */
-  .grid-produtos{display:flex;gap: 25px;overflow-x:auto;padding:20px 10px;scroll-snap-type:x mandatory;scroll-behavior:smooth;}
-  .grid-produtos::-webkit-scrollbar{height:8px;}
-  .grid-produtos::-webkit-scrollbar-thumb{background:#FFD700;border-radius:10px;}
-  .grid-produtos .card-produto{min-width: 280px;scroll-snap-align:start;flex-shrink:0;}
+    /* GRID ENCOMENDA - 2 COLUNAS VERTICAL */
+ .grid-encomenda{display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px 10px;}
+  @media(max-width: 600px){
+   .grid-encomenda{grid-template-columns: 1fr;} /* 1 coluna no celular pequeno */
+  }
 
-  .aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
+ .aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
 
     /* PRODUTOS */
-  .card-produto{background: rgba(0,0,0,0.35);border-radius: 20px;overflow: hidden;box-shadow: 0 8px 25px rgba(0,0,0,0.4);transition: 0.3s;border: 1px solid rgba(255,215,0,0.2);backdrop-filter: blur(10px);text-align: left;}
-  .card-produto:hover{transform: translateY(-10px);box-shadow: 0 15px 40px rgba(255,215,0,0.3);border-color: #FFD700;}
-  .card-produto img{width: 100%;height: 220px;object-fit: contain;background: rgba(0,0,0,0.3);padding: 15px;display: block;}
-  .card-conteudo{padding: 20px;}
-  .card-produto h3{color: #FFD700; font-size: 1.5rem; margin-bottom: 8px;}
-  .card-produto p{color: #ddd; margin-bottom: 15px; font-size: 14px; min-height: 40px;}
-  .preco{font-size: 26px;font-weight:bold;margin:10px 0;color:#fff;}
-  .sinal{font-size: 16px;color:#FFD700;font-weight:600;margin-bottom:10px;}
-  .btn-comprar{display: inline-block;padding: 12px 20px;background: #FFD700;color: #000;text-decoration: none;border-radius: 25px;font-weight: bold;font-size: 1rem;transition: 0.3s;width: 100%;text-align: center;border: none;cursor: pointer;}
-  .btn-comprar:hover{background: #FFC400; transform: scale(1.05);}
-  .loading{text-align: center; padding: 40px; font-size: 1.2rem; color: #FFD700;}
+ .card-produto{background: rgba(0,0,0,0.35);border-radius: 20px;overflow: hidden;box-shadow: 0 8px 25px rgba(0,0,0,0.4);transition: 0.3s;border: 1px solid rgba(255,215,0,0.2);backdrop-filter: blur(10px);text-align: left;}
+ .card-produto:hover{transform: translateY(-10px);box-shadow: 0 15px 40px rgba(255,215,0,0.3);border-color: #FFD700;}
+ .card-produto img{width: 100%;height: 220px;object-fit: contain;background: rgba(0,0,0,0.3);padding: 15px;display: block;}
+ .card-conteudo{padding: 20px;}
+ .card-produto h3{color: #FFD700; font-size: 1.5rem; margin-bottom: 8px;}
+ .card-produto p{color: #ddd; margin-bottom: 15px; font-size: 14px; min-height: 40px;}
+ .preco{font-size: 26px;font-weight:bold;margin:10px 0;color:#fff;}
+ .sinal{font-size: 16px;color:#FFD700;font-weight:600;margin-bottom:10px;}
+ .btn-comprar{display: inline-block;padding: 12px 20px;background: #FFD700;color: #000;text-decoration: none;border-radius: 25px;font-weight: bold;font-size: 1rem;transition: 0.3s;width: 100%;text-align: center;border: none;cursor: pointer;}
+ .btn-comprar:hover{background: #FFC400; transform: scale(1.05);}
+ .loading{text-align: center; padding: 40px; font-size: 1.2rem; color: #FFD700;}
 
     /* WHATS FLUTUANTE */
-  .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
+ .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
 
     /* FOOTER SÓ COM CRÉDITOS */
     footer{text-align: center; padding: 25px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);}
-  .credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
-  .credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
+ .credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
+ .credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
 
     @media(max-width: 768px){
-     .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
-     .apple-icon{width: 35px; height: 35px;}
-     .frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
+    .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
+    .apple-icon{width: 35px; height: 35px;}
+    .frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
     }
 </style>
 </head>
@@ -119,13 +119,26 @@
 </header>
 
 <section class="produtos-section">
-    <div class="tabs" id="tabs-container">
-        <div class="loading">Carregando...</div>
+
+    <!-- 1. PRONTA ENTREGA - CARROSSEL HORIZONTAL -->
+    <div>
+        <h2>🔥 Pronta Entrega</h2>
+        <div class="grid-pronta" id="lista-pronta">
+            <div class="loading">Carregando...</div>
+        </div>
     </div>
 
-    <div id="abas-container">
-        <div class="loading">Carregando produtos...</div>
+    <!-- 2. ENCOMENDA - GRID 2 COLUNAS VERTICAL -->
+    <div style="margin-top: 60px;">
+        <h2>Encomenda</h2>
+        <div class="aviso-encomenda">
+            ⚠️ Encomenda mediante sinal de 30% do valor do produto
+        </div>
+        <div class="grid-encomenda" id="lista-encomenda">
+            <div class="loading">Carregando...</div>
+        </div>
     </div>
+
 </section>
 
 <a href="https://wa.me/5551984254783" class="whats" target="_blank">💬</a>
@@ -137,13 +150,6 @@
 <script>
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJNROg5_zMaA2tjMYW_8hr7K-ufdX3TVXQS_61nCkMAmr9-Ir01EyHOcX5m2h3haZL-XkotesF0Brj/pub?output=csv";
 const NUMERO_WHATS = "5551984254783";
-
-function abrirAba(abaId) {
-    document.querySelectorAll('.aba-conteudo').forEach(el => el.classList.remove('ativa'));
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-    document.getElementById(abaId).classList.add('ativa');
-    document.querySelector(`.tab-btn[onclick="abrirAba('${abaId}')"]`).classList.add('active');
-}
 
 function formatarPreco(valor) {
     return parseFloat(valor.toString().replace(/[^0-9,]/g, '').replace(',', '.')) || 0;
@@ -193,59 +199,36 @@ function criarCard(produto) {
 }
 
 async function carregarProdutos() {
-    const tabsContainer = document.getElementById('tabs-container');
-    const abasContainer = document.getElementById('abas-container');
+    const containerPronta = document.getElementById('lista-pronta');
+    const containerEncomenda = document.getElementById('lista-encomenda');
+
+    containerPronta.innerHTML = '';
+    containerEncomenda.innerHTML = '';
 
     try {
         const res = await fetch(CSV_URL);
         const data = await res.text();
         const dados = parseCSV(data).filter(p => p['Modelo']);
 
-        tabsContainer.innerHTML = '';
-        abasContainer.innerHTML = '';
+        let temPronta = false;
+        let temEncomenda = false;
 
-        // CRIA SÓ AS 2 ABAS FIXAS
-        const abas = ['Pronta Entrega', 'Encomenda'];
-
-        abas.forEach((categoria, index) => {
-            const idAba = categoria.toLowerCase().replace(/\s+/g, '-');
-
-            tabsContainer.innerHTML += `<button class="tab-btn ${index === 0? 'active' : ''}" onclick="abrirAba('${idAba}')">${categoria}</button>`;
-
-            let aviso = categoria === 'Encomenda'? `<div class="aviso-encomenda">⚠️ Encomenda mediante sinal de 30% do valor do produto</div>` : '';
-
-            abasContainer.innerHTML += `
-                <div id="${idAba}" class="aba-conteudo ${index === 0? 'ativa' : ''}">
-                    <h2>${categoria}</h2>
-                    ${aviso}
-                    <div class="grid-produtos" id="lista-${idAba}"></div>
-                </div>
-            `;
-        });
-
-        // PREENCHE OS PRODUTOS
         dados.forEach(produto => {
             const disponibilidade = produto['Disponibilidade'];
-            if(disponibilidade === 'Pronta Entrega' || disponibilidade === 'Encomenda'){
-                const idAba = disponibilidade.toLowerCase().replace(/\s+/g, '-');
-                const container = document.getElementById(`lista-${idAba}`);
-                if(container) {
-                    container.innerHTML += criarCard(produto);
-                }
+            if(disponibilidade === 'Pronta Entrega'){
+                containerPronta.innerHTML += criarCard(produto);
+                temPronta = true;
+            } else if(disponibilidade === 'Encomenda'){
+                containerEncomenda.innerHTML += criarCard(produto);
+                temEncomenda = true;
             }
         });
 
-        // SE NAO TIVER PRODUTO
-        abas.forEach(categoria => {
-             const idAba = categoria.toLowerCase().replace(/\s+/g, '-');
-             const container = document.getElementById(`lista-${idAba}`);
-             if(container && container.innerHTML === '') {
-                 container.innerHTML = `<p style="color:#FFD700;">Nenhum produto em ${categoria}</p>`
-             }
-        })
+        if(!temPronta) containerPronta.innerHTML = `<p style="color:#FFD700; width:100%;">Nenhum produto em Pronta Entrega</p>`
+        if(!temEncomenda) containerEncomenda.innerHTML = `<p style="color:#FFD700; width:100%;">Nenhum produto em Encomenda</p>`
 
     } catch (erro) {
-        tabsContainer.innerHTML = '<p style="color:red;">Erro ao carregar CSV. Verifica se o link está publicado.</p>';
+        containerPronta.innerHTML = '<p style="color:red;">Erro ao carregar CSV</p>';
         console.error(erro);
     }
 }
