@@ -60,13 +60,13 @@
     /* ALTERACAO: TIREI O CARROSSEL. AGORA É GRID 2 COLUNAS IGUAL ENCOMENDA */
 .grid-pronta{display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px 10px;}
   @media(max-width: 600px){
- .grid-pronta{grid-template-columns: 1fr;} /* 1 coluna no celular pequeno */
+.grid-pronta{grid-template-columns: 1fr;} /* 1 coluna no celular pequeno */
   }
 
     /* GRID ENCOMENDA - 2 COLUNAS VERTICAL - CONTINUA IGUAL */
 .grid-encomenda{display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px 10px;}
   @media(max-width: 600px){
- .grid-encomenda{grid-template-columns: 1fr;}
+.grid-encomenda{grid-template-columns: 1fr;}
   }
 
 .aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
@@ -87,15 +87,15 @@
     /* WHATS FLUTUANTE */
 .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
 
-    /* FOOTER SÓ COM CRÉDITOS */
-    footer{text-align: center; padding: 25px; background: rgba(0,0,0.4); backdrop-filter: blur(8px);}
+    /* FOOTER SÓ COM CRÉDITOS - CORRIGIDO */
+    footer{text-align: center; padding: 25px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);}
 .credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
 .credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
 
     @media(max-width: 768px){
-  .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
-  .apple-icon{width: 35px; height: 35px;}
-  .frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
+ .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
+ .apple-icon{width: 35px; height: 35px;}
+ .frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
     }
 </style>
 </head>
