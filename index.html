@@ -10,7 +10,7 @@
 
     /* VÍDEO DE FUNDO */
     #video-bg {position: fixed;top: 0;left: 0;width: 100%;height: 100%;object-fit: cover;z-index: -2;}
-.overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
+.overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.4);z-index: -1;}
 
     /* HEADER */
     header{text-align: center;padding: 80px 20px 40px 20px;background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);}
@@ -53,8 +53,8 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* SEÇÕES */
-.produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
+    /* SEÇÕES - MAIS TRANSPARENTE PRA VER O FUNDO */
+.produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.2);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
 .produtos-section h2{color:#FFD700; font-size: 2rem; margin-bottom: 20px;}
 
     /* ALTERACAO: TIREI O CARROSSEL. AGORA É GRID 2 COLUNAS IGUAL ENCOMENDA */
@@ -69,9 +69,9 @@
 .grid-encomenda{grid-template-columns: 1fr;}
   }
 
-.aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
+.aviso-encomenda{background:rgba(255,215,0,0.08);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
 
-    /* PRODUTOS */
+    /* PRODUTOS - CONTINUA IGUAL PRA LEITURA FICAR BOA */
 .card-produto{background: rgba(0,0,0,0.35);border-radius: 20px;overflow: hidden;box-shadow: 0 8px 25px rgba(0,0,0,0.4);transition: 0.3s;border: 1px solid rgba(255,215,0,0.2);backdrop-filter: blur(10px);text-align: left;}
 .card-produto:hover{transform: translateY(-10px);box-shadow: 0 15px 40px rgba(255,215,0,0.3);border-color: #FFD700;}
 .card-produto img{width: 100%;height: 220px;object-fit: contain;background: rgba(0,0,0,0.3);padding: 15px;display: block;}
@@ -87,15 +87,15 @@
     /* WHATS FLUTUANTE */
 .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
 
-    /* FOOTER SÓ COM CRÉDITOS - CORRIGIDO */
+    /* FOOTER SÓ COM CRÉDITOS */
     footer{text-align: center; padding: 25px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);}
 .credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
 .credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
 
     @media(max-width: 768px){
- .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
- .apple-icon{width: 35px; height: 35px;}
- .frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
+.logo-text{font-size: 2.5rem; letter-spacing: 2px;}
+.apple-icon{width: 35px; height: 35px;}
+.frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
     }
 </style>
 </head>
