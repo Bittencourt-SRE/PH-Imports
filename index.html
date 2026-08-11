@@ -8,151 +8,100 @@
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', sans-serif;scroll-behavior:smooth;}
     body{color:#fff; overflow-x:hidden;}
 
-    /* VÍDEO DE FUNDO */
     #video-bg {position: fixed;top: 0;left: 0;width: 100%;height: 100%;object-fit: cover;z-index: -2;}
-.overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
+   .overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
 
-    /* HEADER */
     header{text-align: center;padding: 80px 20px 40px 20px;background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);}
 
-    /* LETREIRO PH IMPORTS + MAÇÃ */
-.logo-text {
-        font-size: 4rem;
-        font-weight: 900;
-        color: #FFD700;
+   .logo-text {
+        font-size: 4rem; font-weight: 900; color: #FFD700;
         text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 30px rgba(255,215,0,0.8);
-        display: inline-flex;
-        align-items: center;
-        gap: 15px;
-        letter-spacing: 4px;
-        animation: glowPulse 2s ease-in-out infinite;
-        margin-bottom: 25px;
+        display: inline-flex; align-items: center; gap: 15px; letter-spacing: 4px;
+        animation: glowPulse 2s ease-in-out infinite; margin-bottom: 25px;
     }
-.apple-icon {
-        width: 50px;
-        height: 50px;
-        fill: #FFD700;
-        filter: drop-shadow(0 0 12px rgba(255,215,0,0.9));
-    }
+   .apple-icon {width: 50px; height: 50px; fill: #FFD700; filter: drop-shadow(0 0 12px rgba(255,215,0,0.9));}
     @keyframes glowPulse {
         0%, 100% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.7); }
         50% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(255,215,0,1); }
     }
 
-    /* FRASE DOURADA COM! */
-.frase-destaque {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #FFD700;
+   .frase-destaque {
+        font-size: 1.8rem; font-weight: 700; color: #FFD700;
         text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.6);
-        letter-spacing: 2px;
-        animation: fadeInUp 1.5s ease;
+        letter-spacing: 2px; animation: fadeInUp 1.5s ease;
     }
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+   .produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
+   .produtos-section h2{color:#FFD700; font-size: 2rem; margin-bottom: 20px;}
+
+    /* CARROSSEL CORRIGIDO IGUAL REFERENCIA */
+   .grid-pronta{
+        display:flex;
+        gap: 16px;
+        overflow-x:auto;
+        padding:20px;
+        scroll-snap-type:x mandatory;
+        scroll-behavior:smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+   .grid-pronta::-webkit-scrollbar{display: none;}
+
+    /* ATENCAO: ESPAÇO AQUI.grid-pronta.card-produto */
+   .grid-pronta.card-produto{
+        min-width: 75vw;
+        max-width: 75vw;
+        scroll-snap-align: start;
+        flex-shrink: 0;
     }
 
-    /* SEÇÕES */
-.produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
-.produtos-section h2{color:#FFD700; font-size: 2rem; margin-bottom: 20px;}
+    @media(min-width: 768px){
+       .grid-pronta.card-produto{
+            min-width: 320px;
+            max-width: 320px;
+        }
+    }
 
-    /* CARROSSEL PRONTA ENTREGA - IGUAL REFERÊNCIA */
-.grid-pronta{
-    display:flex;
-    gap: 16px;
-    overflow-x:auto;
-    padding:20px 20px;
-    scroll-snap-type:x mandatory;
-    scroll-behavior:smooth;
-    -webkit-overflow-scrolling: touch; /* scroll liso no iphone */
-}
-.grid-pronta::-webkit-scrollbar{display: none;} /* esconde barra */
-.grid-pronta.card-produto{
-    min-width: 75vw; /* ocupa 75% da tela no mobile */
-    max-width: 75vw;
-    scroll-snap-align: start;
-    flex-shrink: 0;
-}
+   .grid-encomenda{display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px 10px;}
+    @media(max-width: 600px){.grid-encomenda{grid-template-columns: 1fr;} }
 
-/* Desktop: card menor */
-@media(min-width: 768px){
-.grid-pronta.card-produto{
-    min-width: 320px;
-    max-width: 320px;
-}
-}
+   .aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
 
-    /* GRID ENCOMENDA - 2 COLUNAS VERTICAL */
-.grid-encomenda{display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px 10px;}
-  @media(max-width: 600px){
-.grid-encomenda{grid-template-columns: 1fr;}
-  }
+   .card-produto{
+        background: rgba(20,20,20,0.9); border-radius: 16px; overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5); transition: 0.3s;
+        border: 1px solid rgba(255,215,0,0.15); text-align: left;
+        display: flex; flex-direction: column;
+    }
+   .card-produto:hover{transform: translateY(-5px);box-shadow: 0 10px 30px rgba(255,215,0,0.2);}
+   .card-produto img{width: 100%; height: 200px; object-fit: cover; background: #000; display: block;}
+   .card-conteudo{padding: 18px; flex:1; display:flex; flex-direction:column;}
+   .card-produto h3{color: #FFD700; font-size: 1.3rem; margin-bottom: 8px; font-weight:700;}
+   .card-produto p{color: #ccc; margin-bottom: 15px; font-size: 14px; flex:1; line-height:1.4;}
+   .preco{font-size: 22px;font-weight:bold;margin:10px 0;color:#fff;}
+   .sinal{font-size: 14px;color:#FFD700;font-weight:600;margin-bottom:10px;}
+   .btn-comprar{
+        margin-top:auto; display: inline-block; padding: 12px 20px; background: #FFD700; color: #000;
+        text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 0.95rem;
+        transition: 0.3s; width: 100%; text-align: center; border: none; cursor: pointer;
+    }
+   .btn-comprar:hover{background: #FFC400; transform: scale(1.03);}
+   .loading{text-align: center; padding: 40px; font-size: 1.2rem; color: #FFD700;}
 
-.aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
-
-    /* PRODUTOS - CARDS IGUAL REFERÊNCIA */
-.card-produto{
-    background: rgba(20,20,20,0.9);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    transition: 0.3s;
-    border: 1px solid rgba(255,215,0,0.15);
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-}
-.card-produto:hover{transform: translateY(-5px);box-shadow: 0 10px 30px rgba(255,215,0,0.2);}
-.card-produto img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* imagem preenche sem deformar */
-    background: #000;
-    display: block;
-}
-.card-conteudo{padding: 18px; flex:1; display:flex; flex-direction:column;}
-.card-produto h3{color: #FFD700; font-size: 1.3rem; margin-bottom: 8px; font-weight:700;}
-.card-produto p{color: #ccc; margin-bottom: 15px; font-size: 14px; flex:1; line-height:1.4;}
-.preco{font-size: 22px;font-weight:bold;margin:10px 0;color:#fff;}
-.sinal{font-size: 14px;color:#FFD700;font-weight:600;margin-bottom:10px;}
-.btn-comprar{
-    margin-top:auto;
-    display: inline-block;
-    padding: 12px 20px;
-    background: #FFD700;
-    color: #000;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 0.95rem;
-    transition: 0.3s;
-    width: 100%;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-}
-.btn-comprar:hover{background: #FFC400; transform: scale(1.03);}
-.loading{text-align: center; padding: 40px; font-size: 1.2rem; color: #FFD700;}
-
-    /* WHATS FLUTUANTE */
-.whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
-
-    /* FOOTER SÓ COM CRÉDITOS */
+   .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
     footer{text-align: center; padding: 25px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);}
-.credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
-.credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
+   .credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
+   .credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
 
     @media(max-width: 768px){
-.logo-text{font-size: 2.5rem; letter-spacing: 2px;}
-.apple-icon{width: 35px; height: 35px;}
-.frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
+       .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
+       .apple-icon{width: 35px; height: 35px;}
+       .frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
     }
 </style>
 </head>
 <body>
 
-<!-- VÍDEO DE FUNDO -->
 <video autoplay muted loop playsinline id="video-bg">
     <source src="estatua.mp4" type="video/mp4">
 </video>
@@ -169,8 +118,6 @@
 </header>
 
 <section class="produtos-section">
-
-    <!-- 1. PRONTA ENTREGA - CARROSSEL HORIZONTAL -->
     <div>
         <h2>🔥 Pronta Entrega</h2>
         <div class="grid-pronta" id="lista-pronta">
@@ -178,17 +125,13 @@
         </div>
     </div>
 
-    <!-- 2. ENCOMENDA - GRID 2 COLUNAS VERTICAL -->
     <div style="margin-top: 60px;">
         <h2>Encomenda</h2>
-        <div class="aviso-encomenda">
-            ⚠️ Encomenda mediante sinal de 30% do valor do produto
-        </div>
+        <div class="aviso-encomenda">⚠️ Encomenda mediante sinal de 30% do valor do produto</div>
         <div class="grid-encomenda" id="lista-encomenda">
             <div class="loading">Carregando...</div>
         </div>
     </div>
-
 </section>
 
 <a href="https://wa.me/5551984254783" class="whats" target="_blank">💬</a>
@@ -215,18 +158,12 @@ function formatarPreco(valor) {
 }
 
 function parseCSV(text) {
-  const rows = [];
-  let row = [], cell = '', inQuotes = false;
+  const rows = []; let row = [], cell = '', inQuotes = false;
   for (let i = 0; i < text.length; i++) {
     const char = text[i], next = text[i+1];
-    if (char === '"') {
-      if (inQuotes && next === '"') { cell += '"'; i++; }
-      else { inQuotes =!inQuotes; }
-    } else if (char === ',' &&!inQuotes) {
-      row.push(cell); cell = '';
-    } else if ((char === '\n' || char === '\r') &&!inQuotes) {
-      if (cell!== '' || row.length > 0) { row.push(cell); rows.push(row); row = []; cell = ''; }
-      if (char === '\r' && next === '\n') i++;
+    if (char === '"') { if (inQuotes && next === '"') { cell += '"'; i++; } else { inQuotes =!inQuotes; }
+    } else if (char === ',' &&!inQuotes) { row.push(cell); cell = '';
+    } else if ((char === '\n' || char === '\r') &&!inQuotes) { if (cell!== '' || row.length > 0) { row.push(cell); rows.push(row); row = []; cell = ''; } if (char === '\r' && next === '\n') i++;
     } else { cell += char; }
   }
   if (cell!== '' || row.length > 0) { row.push(cell); rows.push(row); }
@@ -260,27 +197,18 @@ function criarCard(produto) {
 async function carregarProdutos() {
     const containerPronta = document.getElementById('lista-pronta');
     const containerEncomenda = document.getElementById('lista-encomenda');
-
-    containerPronta.innerHTML = '';
-    containerEncomenda.innerHTML = '';
+    containerPronta.innerHTML = ''; containerEncomenda.innerHTML = '';
 
     try {
         const res = await fetch(CSV_URL);
         const data = await res.text();
         const dados = parseCSV(data).filter(p => p['Modelo']);
-
-        let temPronta = false;
-        let temEncomenda = false;
+        let temPronta = false; let temEncomenda = false;
 
         dados.forEach(produto => {
             const disponibilidade = produto['Disponibilidade'];
-            if(disponibilidade === 'Pronta Entrega'){
-                containerPronta.innerHTML += criarCard(produto);
-                temPronta = true;
-            } else if(disponibilidade === 'Encomenda'){
-                containerEncomenda.innerHTML += criarCard(produto);
-                temEncomenda = true;
-            }
+            if(disponibilidade === 'Pronta Entrega'){ containerPronta.innerHTML += criarCard(produto); temPronta = true; }
+            else if(disponibilidade === 'Encomenda'){ containerEncomenda.innerHTML += criarCard(produto); temEncomenda = true; }
         });
 
         if(!temPronta) containerPronta.innerHTML = `<p style="color:#FFD700; width:100%;">Nenhum produto em Pronta Entrega</p>`
@@ -295,6 +223,5 @@ async function carregarProdutos() {
 
 carregarProdutos();
 </script>
-
 </body>
 </html>
