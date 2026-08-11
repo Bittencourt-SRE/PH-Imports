@@ -8,89 +8,43 @@
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', sans-serif;scroll-behavior:smooth;}
     body{color:#fff; overflow-x:hidden;}
 
-    /* VÍDEO DE FUNDO */
     #video-bg {position: fixed;top: 0;left: 0;width: 100%;height: 100%;object-fit: cover;z-index: -2;}
 .overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index: -1;}
 
-    /* HEADER */
     header{text-align: center;padding: 80px 20px 40px 20px;background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);}
 
-    /* LETREIRO PH IMPORTS + MAÇÃ */
 .logo-text {
-        font-size: 4rem;
-        font-weight: 900;
-        color: #FFD700;
+        font-size: 4rem; font-weight: 900; color: #FFD700;
         text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 30px rgba(255,215,0,0.8);
-        display: inline-flex;
-        align-items: center;
-        gap: 15px;
-        letter-spacing: 4px;
-        animation: glowPulse 2s ease-in-out infinite;
-        margin-bottom: 25px;
+        display: inline-flex; align-items: center; gap: 15px; letter-spacing: 4px;
+        animation: glowPulse 2s ease-in-out infinite; margin-bottom: 25px;
     }
-.apple-icon {
-        width: 50px;
-        height: 50px;
-        fill: #FFD700;
-        filter: drop-shadow(0 0 12px rgba(255,215,0,0.9));
-    }
+.apple-icon {width: 50px; height: 50px; fill: #FFD700; filter: drop-shadow(0 0 12px rgba(255,215,0,0.9));}
     @keyframes glowPulse {
         0%, 100% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.7); }
         50% { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(255,215,0,1); }
     }
 
-    /* FRASE DOURADA COM! */
 .frase-destaque {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #FFD700;
+        font-size: 1.8rem; font-weight: 700; color: #FFD700;
         text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.6);
-        letter-spacing: 2px;
-        animation: fadeInUp 1.5s ease;
+        letter-spacing: 2px; animation: fadeInUp 1.5s ease;
     }
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* SEÇÕES */
 .produtos-section{max-width: 1200px;margin: 60px auto;padding: 40px 20px;text-align: center;background: rgba(0,0,0,0.4);border-radius: 20px;backdrop-filter: blur(8px);box-shadow: 0 8px 30px rgba(0,0,0,0.3);}
 .produtos-section h2{color:#FFD700; font-size: 2rem; margin-bottom: 20px;}
 
-    /* ALTERACAO 1: CARROSSEL FUNCIONAL IGUAL REFERENCIA */
-.carrossel-wrapper{position: relative; max-width: 500px; margin: 0 auto;}
-.grid-pronta{
-    display:flex;
+    /* GRID 2 COLUNAS SEMPRE - TIREI O @MEDIA */
+.grid-produtos{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    scroll-behavior:smooth;
-    padding:20px 10px;
-    -webkit-overflow-scrolling: touch;
+    padding: 20px 10px;
 }
-.grid-pronta::-webkit-scrollbar{display: none;}
-
-/* ESPAÇO É O SEGREDO */
-.grid-pronta.card-produto{
-    min-width: 100%;
-    scroll-snap-align: center;
-    flex-shrink:0;
-}
-
-/* SETINHAS */
-.seta{position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.4); color:#FFD700; border:2px solid #FFD700; font-size:28px; width:45px; height:45px; border-radius:50%; cursor:pointer; z-index:10; font-weight:bold;}
-.seta.esq{left:-5px;}
-.seta.dir{right:-5px;}
-
-    /* GRID ENCOMENDA - 2 COLUNAS VERTICAL - NÃO MEXI */
-.grid-encomenda{display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px 10px;}
-  @media(max-width: 600px){
-.grid-encomenda{grid-template-columns: 1fr;}
-  }
 
 .aviso-encomenda{background:rgba(255,215,0,0.15);border:1px solid #FFD700;padding:15px;border-radius:12px;margin-bottom:25px;font-weight:600;}
 
-    /* PRODUTOS - SEU DESIGN - NÃO MEXI */
 .card-produto{background: rgba(0,0,0,0.35);border-radius: 20px;overflow: hidden;box-shadow: 0 8px 25px rgba(0,0,0,0.4);transition: 0.3s;border: 1px solid rgba(255,215,0,0.2);backdrop-filter: blur(10px);text-align: left;}
 .card-produto:hover{transform: translateY(-10px);box-shadow: 0 15px 40px rgba(255,215,0,0.3);border-color: #FFD700;}
 .card-produto img{width: 100%;height: 220px;object-fit: contain;background: rgba(0,0,0,0.3);padding: 15px;display: block;}
@@ -101,27 +55,22 @@
 .sinal{font-size: 16px;color:#FFD700;font-weight:600;margin-bottom:10px;}
 .btn-comprar{display: inline-block;padding: 12px 20px;background: #FFD700;color: #000;text-decoration: none;border-radius: 25px;font-weight: bold;font-size: 1rem;transition: 0.3s;width: 100%;text-align: center;border: none;cursor: pointer;}
 .btn-comprar:hover{background: #FFC400; transform: scale(1.05);}
-.loading{text-align: center; padding: 40px; font-size: 1.2rem; color: #FFD700;}
+.loading{text-align: center; padding: 40px; font-size: 1.2rem; color: #FFD700; grid-column: 1 / -1;}
 
-    /* WHATS FLUTUANTE */
 .whats{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;text-decoration:none;color:#fff;box-shadow:0 0 25px #25D366;z-index:99;}
-
-    /* FOOTER SÓ COM CRÉDITOS */
-    footer{text-align: center; padding: 25px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);}
+footer{text-align: center; padding: 25px; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px);}
 .credito a{color:#25D366;font-weight:700;text-decoration:none;transition:0.3s;}
 .credito a:hover{text-decoration:underline;text-shadow:0 0 10px #25D366;}
 
     @media(max-width: 768px){
- .logo-text{font-size: 2.5rem; letter-spacing: 2px;}
- .apple-icon{width: 35px; height: 35px;}
- .frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
- .carrossel-wrapper{max-width: 90vw;}
+.logo-text{font-size: 2.5rem; letter-spacing: 2px;}
+.apple-icon{width: 35px; height: 35px;}
+.frase-destaque{font-size: 1.3rem; letter-spacing: 1px; padding: 0 15px;}
     }
 </style>
 </head>
 <body>
 
-<!-- VÍDEO DE FUNDO -->
 <video autoplay muted loop playsinline id="video-bg">
     <source src="estatua.mp4" type="video/mp4">
 </video>
@@ -138,30 +87,20 @@
 </header>
 
 <section class="produtos-section">
-
-    <!-- ALTERACAO 2: HTML DO CARROSSEL COM SETINHAS -->
     <div>
         <h2>🔥 Pronta Entrega</h2>
-        <div class="carrossel-wrapper">
-            <button class="seta esq" onclick="document.getElementById('lista-pronta').scrollBy({left: -400, behavior: 'smooth'})">‹</button>
-            <button class="seta dir" onclick="document.getElementById('lista-pronta').scrollBy({left: 400, behavior: 'smooth'})">›</button>
-            <div class="grid-pronta" id="lista-pronta">
-                <div class="loading">Carregando...</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ENCOMENDA - IGUAL -->
-    <div style="margin-top: 60px;">
-        <h2>Encomenda</h2>
-        <div class="aviso-encomenda">
-            ⚠️ Encomenda mediante sinal de 30% do valor do produto
-        </div>
-        <div class="grid-encomenda" id="lista-encomenda">
+        <div class="grid-produtos" id="lista-pronta">
             <div class="loading">Carregando...</div>
         </div>
     </div>
 
+    <div style="margin-top: 60px;">
+        <h2>Encomenda</h2>
+        <div class="aviso-encomenda">⚠️ Encomenda mediante sinal de 30% do valor do produto</div>
+        <div class="grid-produtos" id="lista-encomenda">
+            <div class="loading">Carregando...</div>
+        </div>
+    </div>
 </section>
 
 <a href="https://wa.me/5551984254783" class="whats" target="_blank">💬</a>
@@ -188,18 +127,12 @@ function formatarPreco(valor) {
 }
 
 function parseCSV(text) {
-  const rows = [];
-  let row = [], cell = '', inQuotes = false;
+  const rows = []; let row = [], cell = '', inQuotes = false;
   for (let i = 0; i < text.length; i++) {
     const char = text[i], next = text[i+1];
-    if (char === '"') {
-      if (inQuotes && next === '"') { cell += '"'; i++; }
-      else { inQuotes =!inQuotes; }
-    } else if (char === ',' &&!inQuotes) {
-      row.push(cell); cell = '';
-    } else if ((char === '\n' || char === '\r') &&!inQuotes) {
-      if (cell!== '' || row.length > 0) { row.push(cell); rows.push(row); row = []; cell = ''; }
-      if (char === '\r' && next === '\n') i++;
+    if (char === '"') { if (inQuotes && next === '"') { cell += '"'; i++; } else { inQuotes =!inQuotes; }
+    } else if (char === ',' &&!inQuotes) { row.push(cell); cell = '';
+    } else if ((char === '\n' || char === '\r') &&!inQuotes) { if (cell!== '' || row.length > 0) { row.push(cell); rows.push(row); row = []; cell = ''; } if (char === '\r' && next === '\n') i++;
     } else { cell += char; }
   }
   if (cell!== '' || row.length > 0) { row.push(cell); rows.push(row); }
@@ -233,41 +166,31 @@ function criarCard(produto) {
 async function carregarProdutos() {
     const containerPronta = document.getElementById('lista-pronta');
     const containerEncomenda = document.getElementById('lista-encomenda');
-
-    containerPronta.innerHTML = '';
-    containerEncomenda.innerHTML = '';
+    containerPronta.innerHTML = ''; containerEncomenda.innerHTML = '';
 
     try {
         const res = await fetch(CSV_URL);
         const data = await res.text();
         const dados = parseCSV(data).filter(p => p['Modelo']);
-
-        let temPronta = false;
-        let temEncomenda = false;
+        let temPronta = false; let temEncomenda = false;
 
         dados.forEach(produto => {
             const disponibilidade = produto['Disponibilidade'];
-            if(disponibilidade === 'Pronta Entrega'){
-                containerPronta.innerHTML += criarCard(produto);
-                temPronta = true;
-            } else if(disponibilidade === 'Encomenda'){
-                containerEncomenda.innerHTML += criarCard(produto);
-                temEncomenda = true;
-            }
+            if(disponibilidade === 'Pronta Entrega'){ containerPronta.innerHTML += criarCard(produto); temPronta = true; }
+            else if(disponibilidade === 'Encomenda'){ containerEncomenda.innerHTML += criarCard(produto); temEncomenda = true; }
         });
 
-        if(!temPronta) containerPronta.innerHTML = `<p style="color:#FFD700; width:100%;">Nenhum produto em Pronta Entrega</p>`
-        if(!temEncomenda) containerEncomenda.innerHTML = `<p style="color:#FFD700; width:100%;">Nenhum produto em Encomenda</p>`
+        if(!temPronta) containerPronta.innerHTML = `<p style="color:#FFD700; width:100%; grid-column: 1 / -1;">Nenhum produto em Pronta Entrega</p>`
+        if(!temEncomenda) containerEncomenda.innerHTML = `<p style="color:#FFD700; width:100%; grid-column: 1 / -1;">Nenhum produto em Encomenda</p>`
 
     } catch (erro) {
-        containerPronta.innerHTML = '<p style="color:red;">Erro ao carregar CSV</p>';
-        containerEncomenda.innerHTML = '<p style="color:red;">Erro ao carregar CSV</p>';
+        containerPronta.innerHTML = '<p style="color:red; grid-column: 1 / -1;">Erro ao carregar CSV</p>';
+        containerEncomenda.innerHTML = '<p style="color:red; grid-column: 1 / -1;">Erro ao carregar CSV</p>';
         console.error(erro);
     }
 }
 
 carregarProdutos();
 </script>
-
 </body>
 </html>
